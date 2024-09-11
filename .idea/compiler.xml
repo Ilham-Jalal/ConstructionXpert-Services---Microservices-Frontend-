@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Annotation profile for constructxpert-services" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.5.5.Final/mapstruct-processor-1.5.5.Final.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.5.5.Final/mapstruct-1.5.5.Final.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.32/lombok-1.18.32.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.jar" />
+        </processorPath>
+        <module name="resource-service" />
+        <module name="task-service" />
+        <module name="user-service" />
+        <module name="api-gateway-service" />
+        <module name="eureka-server" />
+        <module name="project-service" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api-gateway-service" options="--enable-preview -Amapstruct.defaultComponentModel=spring" />
+      <module name="eureka-server" options="--enable-preview -Amapstruct.defaultComponentModel=spring" />
+      <module name="project-service" options="--enable-preview -Amapstruct.defaultComponentModel=spring" />
+      <module name="resource-service" options="--enable-preview -Amapstruct.defaultComponentModel=spring" />
+      <module name="task-service" options="--enable-preview -Amapstruct.defaultComponentModel=spring" />
+      <module name="user-service" options="--enable-preview -Amapstruct.defaultComponentModel=spring" />
+    </option>
+  </component>
+</project>

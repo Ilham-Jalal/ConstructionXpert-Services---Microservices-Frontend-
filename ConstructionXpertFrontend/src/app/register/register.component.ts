@@ -53,7 +53,7 @@ export class RegisterComponent implements OnInit {
         this.authService.registerAdmin(dto).subscribe({
           next: (response) => {
             console.log('Admin registered:', response);
-            this.router.navigate(['/login']);
+            this.router.navigate(['/']);
           },
           error: (err) => {
             console.error('Registration error:', err);
@@ -67,7 +67,7 @@ export class RegisterComponent implements OnInit {
         this.authService.registerClient(dto).subscribe({
           next: (response) => {
             console.log('Client registered:', response);
-            this.router.navigate(['/login']);
+            this.router.navigate(['/']);
           },
           error: (err) => {
             console.error('Registration error:', err);

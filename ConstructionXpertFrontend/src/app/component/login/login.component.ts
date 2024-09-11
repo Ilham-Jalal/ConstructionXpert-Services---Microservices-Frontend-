@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
         // Navigate based on the role
         switch (role) {
           case Role.ADMIN:
-            this.router.navigate(['/dashboard/equipments/']);
+            this.router.navigate(['/cc']);
             break;
           case Role.CLIENT:
           case Role.SUPERVISOR:

@@ -8,6 +8,7 @@ import {AuthInterceptor} from "./interceptor/auth-interceptor";
 import {ReactiveFormsModule} from "@angular/forms";
 import {LoginComponent} from "./component/login/login.component";
 import { RegisterComponent } from './register/register.component';
+import { AdminManagementComponent } from './admin-management/admin-management.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RegisterComponent } from './register/register.component';
     HttpClientModule,
     LoginComponent,
     RegisterComponent,
-    RegisterComponent
+    RegisterComponent,
+    AdminManagementComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }  ],

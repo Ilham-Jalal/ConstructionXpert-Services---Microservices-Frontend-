@@ -11,7 +11,7 @@ import {SupervisorDto} from "../dto/SupervisorDto";
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private apiUrl = 'http://localhost:8080/api/auth';
+  private apiUrl = 'http://localhost:9191/api/auth';
 
   constructor(private http: HttpClient) {}
 

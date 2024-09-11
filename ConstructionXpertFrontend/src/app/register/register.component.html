@@ -1,0 +1,56 @@
+<div class="register-container">
+  <h2>Register</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input id="username" formControlName="username" type="text" />
+      <div *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched">
+        <small class="error-text">Username is required</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" formControlName="password" type="password" />
+      <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+        <small class="error-text">Password is required</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" type="email" />
+      <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+        <small class="error-text">Invalid email address</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="role">Role</label>
+      <select id="role" formControlName="role">
+        <option value="" disabled>Select a role</option>
+        <option value="ADMIN">Admin</option>
+        <option value="CLIENT">Client</option>
+        <option value="SUPERVISOR">Supervisor</option>
+      </select>
+      <div *ngIf="registerForm.get('role')?.invalid && registerForm.get('role')?.touched">
+        <small class="error-text">Role is required</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="profilePicture">Password</label>
+      <input id="profilePicture" formControlName="profilePicture" type="text" />
+      <div *ngIf="registerForm.get('profilePicture')?.invalid && registerForm.get('profilePicture')?.touched">
+        <small class="error-text">profile Picture is required</small>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="registerForm.invalid">Register</button>
+
+    <div *ngIf="errorMessage" class="error-message">
+      <p>{{ errorMessage }}</p>
+    </div>
+  </form>
+</div>

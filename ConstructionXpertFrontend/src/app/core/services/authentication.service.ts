@@ -1,19 +1,26 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {AuthenticationRequest} from "../dto/AuthenticationRequest";
-import {Observable} from "rxjs";
-import {HttpClient} from "@angular/common/http";
-import {AuthenticationResponse} from "../dto/AuthenticationResponse";
-import {AdminDto} from "../dto/AdminDto";
-import {ClientDto} from "../dto/ClientDto";
-import {SupervisorDto} from "../dto/SupervisorDto";
+import { AuthenticationRequest } from '../dtos/AuthenticationRequest';
+import { AuthenticationResponse } from '../dtos/AuthenticationResponse';
+import { Observable } from 'rxjs';
+import { AdminDto } from '../dtos/AdminDto';
+import { ClientDto } from '../dtos/ClientDto';
+import { SupervisorDto } from '../dtos/SupervisorDto';
+import { Role } from '../enums/Role';
+import { User } from '../models/User';
+import { Store } from '@ngrx/store';
+import { AppState } from '../ngrx/app.state';
+import { logout, setRole, setUser } from '../ngrx/auth.actions';
+import { JwtService } from './jwt.service';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private apiUrl = 'http://localhost:8080/api/auth';
+  private apiUrl = 'http://localhost:9191/USER-SERVICE/api/auth';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private store: Store<AppState>, private jwtService: JwtService) {}
 
   login(authRequest: AuthenticationRequest): Observable<AuthenticationResponse> {
     return this.http.post<AuthenticationResponse>(`${this.apiUrl}/login`, authRequest);
@@ -29,5 +36,25 @@ export class AuthenticationService {
 
   registerSupervisor(supervisorDto: SupervisorDto): Observable<AuthenticationResponse> {
     return this.http.post<AuthenticationResponse>(`${this.apiUrl}/register/supervisor`, supervisorDto);
+  }
+
+  isLoggedIn(): boolean {
+    const token = localStorage.getItem("auth-token");
+
+    if (token && !this.jwtService.isTokenExpired(token)) {
+      const role: Role = this.jwtService.extractRole(token);
+      const user: User = this.jwtService.extractUser(token);
+      this.store.dispatch(setRole({ role }));
+      this.store.dispatch(setUser({ user }));
+      return true;
+    } else {
+      this.logout()
+      return false;
+    }
+  }
+
+  logout() {
+    localStorage.removeItem("auth-token")
+    this.store.dispatch(logout());
   }
 }

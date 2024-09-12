@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {ClientDto} from "../dto/ClientDto";
+import { ClientDto } from '../dtos/ClientDto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientService {
-  private apiUrl = 'http://localhost:8080/api/client';
+  private apiUrl = 'http://localhost:9191/USER-SERVICE/api/client';
 
   constructor(private http: HttpClient) {}
 

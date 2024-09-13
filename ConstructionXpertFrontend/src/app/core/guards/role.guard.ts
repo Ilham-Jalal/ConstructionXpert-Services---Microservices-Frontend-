@@ -24,7 +24,7 @@ export const roleGuard: CanActivateChildFn = (
     return store.select(selectRole).pipe(
       map(userRole => {
         if (requiredRoles && userRole && !requiredRoles.includes(userRole)) {
-          router.navigate(['/home']);
+          router.navigate(['/dashboard']);
           return false;
         }
         return true;

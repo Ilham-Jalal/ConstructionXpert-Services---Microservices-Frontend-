@@ -41,16 +41,18 @@
 .authentication .right .welcome{
     width: 100%;
     height: 70%;
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 .authentication .right .welcome h1{
     font-weight: bolder;
-    font-size: 30px;
+    font-size: 20px;
+    margin: 0!;
 }
 .authentication .right .welcome span{
     font-weight: 400;
-    font-size: 20px;
+    font-size: 15px;
+    margin: 0 !important;
 }
 .authentication .right .welcome .input{
     background: white;
@@ -177,5 +179,6 @@
     height: auto;
     animation: rotate 2s linear infinite;
   }
+
 
   

@@ -14,14 +14,32 @@ import { PasswordStrengthPipe } from './shared/pipes/password-strength.pipe';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './core/ngrx/app.state';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DashboardComponent } from './features/dashboard/dashboard.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+import { SidebarComponent } from './features/dashboard/components/sidebar/sidebar.component';
+import { NavbarComponent } from './features/dashboard/components/navbar/navbar.component';
+import { MainComponent } from './features/dashboard/components/main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
     PasswordStrengthPipe,
+    DashboardComponent,
+    SidebarComponent,
+    NavbarComponent,
+    MainComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatListModule,
+    MatCardModule,
+    MatToolbarModule,
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,

@@ -2,16 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthenticationRequest } from '../dtos/AuthenticationRequest';
 import { AuthenticationResponse } from '../dtos/AuthenticationResponse';
-import { Observable } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
 import { AdminDto } from '../dtos/AdminDto';
 import { ClientDto } from '../dtos/ClientDto';
 import { SupervisorDto } from '../dtos/SupervisorDto';
 import { Role } from '../enums/Role';
 import { User } from '../models/User';
-import { Store } from '@ngrx/store';
 import { AppState } from '../ngrx/app.state';
 import { logout, setRole, setUser } from '../ngrx/auth.actions';
 import { JwtService } from './jwt.service';
+import { Store } from '@ngrx/store';
+import { LoginException } from '../exceptions/login.exception';
 
 
 @Injectable({
@@ -23,7 +24,28 @@ export class AuthenticationService {
   constructor(private http: HttpClient, private store: Store<AppState>, private jwtService: JwtService) {}
 
   login(authRequest: AuthenticationRequest): Observable<AuthenticationResponse> {
-    return this.http.post<AuthenticationResponse>(`${this.apiUrl}/login`, authRequest);
+    return this.http.post<AuthenticationResponse>(`${this.apiUrl}/login`, authRequest).pipe(
+      map(response => {
+        const authResponse: AuthenticationResponse = response;
+        if (authResponse.token && this.jwtService.validateToken(authResponse.token, authRequest)) {
+
+          localStorage.setItem("auth-token", authResponse.token)
+
+          return authResponse;
+        } else {
+          throw LoginException.authenticationFailed();
+        }
+      }),
+      catchError(error => {
+        if (error.status === 401) {
+          return throwError(() =>
+            LoginException.invalidCredentials() ||
+            LoginException.authenticationFailed()
+          );
+        }
+        return throwError(() => error.message || 'Failed to login');
+      })
+    );
   }
 
   registerAdmin(adminDto: AdminDto): Observable<AuthenticationResponse> {

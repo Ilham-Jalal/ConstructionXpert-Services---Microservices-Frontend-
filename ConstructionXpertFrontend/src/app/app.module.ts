@@ -1,31 +1,42 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
+import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {AuthInterceptor} from "./interceptor/auth-interceptor";
-import {ReactiveFormsModule} from "@angular/forms";
-import {LoginComponent} from "./component/login/login.component";
-import { RegisterComponent } from './register/register.component';
-import { AdminManagementComponent } from './admin-management/admin-management.component';
+import { HttpClient, HttpClientModule, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import { authInterceptor } from './core/interceptors/auth-interceptor';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { AuthComponent } from './features/auth/auth.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
+import { PasswordStrengthPipe } from './shared/pipes/password-strength.pipe';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './core/ngrx/app.state';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AuthComponent,
+    PasswordStrengthPipe,
   ],
   imports: [
+    MatInputModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatIconModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    LoginComponent,
-    RegisterComponent,
-    RegisterComponent,
-    AdminManagementComponent
+    StoreModule.forRoot(reducers, { metaReducers } )
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }  ],
+    HttpClient,
+    provideHttpClient(withInterceptors([authInterceptor]), withFetch()),
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

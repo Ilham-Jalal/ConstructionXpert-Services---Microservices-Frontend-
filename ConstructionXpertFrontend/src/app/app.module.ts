@@ -13,19 +13,23 @@ import { MatIconModule } from '@angular/material/icon';
 import { PasswordStrengthPipe } from './shared/pipes/password-strength.pipe';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './core/ngrx/app.state';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './features/register/register.component';
 import { AdminDashboardComponent } from './features/admin-dashboard/admin-dashboard.component';
 import { UserListComponent } from './features/user-list/user-list.component';
-import {MatOption, MatSelect} from "@angular/material/select";
-import {MatSidenav, MatSidenavContainer} from "@angular/material/sidenav";
-import {MatToolbar} from "@angular/material/toolbar";
-import {MatListItem, MatNavList} from "@angular/material/list";
-import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
-import {MatGridList, MatGridTile} from "@angular/material/grid-list";
-import {MatCard, MatCardHeader} from "@angular/material/card";
-import {NgOptimizedImage} from "@angular/common";
+import { MatSelectModule } from '@angular/material/select';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { NgOptimizedImage } from '@angular/common';
 import { ResourceListComponent } from './features/resource-list/resource-list.component';
+import { DashboardComponent } from './features/dashboard/dashboard.component';
+import { SidebarComponent } from './features/dashboard/components/sidebar/sidebar.component';
+import { NavbarComponent } from './features/dashboard/components/navbar/navbar.component';
+import { MainComponent } from './features/dashboard/components/main/main.component';
 
 @NgModule({
   declarations: [
@@ -35,36 +39,31 @@ import { ResourceListComponent } from './features/resource-list/resource-list.co
     RegisterComponent,
     UserListComponent,
     ResourceListComponent,
+    DashboardComponent,
+    SidebarComponent,
+    NavbarComponent,
+    MainComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
     StoreModule.forRoot(reducers, {metaReducers}),
-    BrowserAnimationsModule, // Remplacement par BrowserAnimationsModule pour animations
-    // Angular Material modules
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatListModule,
+    MatCardModule,
+    MatToolbarModule,
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
     MatIconModule,
-    FormsModule,
-    MatSelect,
-    MatOption,
-    MatSidenavContainer,
-    MatSidenav,
-    MatToolbar,
-    MatNavList,
-    MatListItem,
-    MatMenuTrigger,
-    MatMenu,
-    MatMenuItem,
-    MatGridList,
-    MatGridTile,
-    MatCard,
-    MatCardHeader,
+    MatSelectModule,
+    MatMenuModule,
+    MatGridListModule,
     NgOptimizedImage,
-    AdminDashboardComponent,
     AdminDashboardComponent
   ],
   providers: [

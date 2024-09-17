@@ -41,16 +41,18 @@
 .authentication .right .welcome{
     width: 100%;
     height: 70%;
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 .authentication .right .welcome h1{
     font-weight: bolder;
-    font-size: 30px;
+    font-size: 20px;
+    margin: 0;
 }
 .authentication .right .welcome span{
     font-weight: 400;
-    font-size: 20px;
+    font-size: 15px;
+    margin: 0 !important;
 }
 .authentication .right .welcome .input{
     background: white;
@@ -129,7 +131,7 @@
     font-size: 12px;
     font-weight: 700;
     margin: 5px 0;
-    
+
   }
   @keyframes fadeOut {
     from {
@@ -139,11 +141,11 @@
       opacity: 0;
     }
   }
-  
+
   .fade-out {
     animation: fadeOut 1s forwards;
   }
-  
+
   @keyframes fadeInZoom {
     from {
       opacity: 0;
@@ -154,7 +156,7 @@
       transform: scale(1);
     }
   }
-  
+
   .success-animation {
     animation: fadeInZoom 1s forwards;
     text-align: center;
@@ -178,4 +180,5 @@
     animation: rotate 2s linear infinite;
   }
 
-  
+
+

@@ -53,8 +53,8 @@ export class AuthComponent implements OnInit{
             this.loginContainer.nativeElement.classList.add('fade-out');
             this.showSuccessAnimation = true;
             setTimeout(() => {
-              console.log("success");
-            }, 5000);
+              this.router.navigate(["/dashboard"])
+            }, 1500);
           }
         },
         error: (error) => {

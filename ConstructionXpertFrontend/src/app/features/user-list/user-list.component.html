@@ -1,0 +1,68 @@
+<div class="user-list">
+  <div class="search-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Search by Username</mat-label>
+      <input matInput [(ngModel)]="searchUsername" placeholder="Enter username">
+    </mat-form-field>
+    <button mat-raised-button class="search-button" (click)="getUserByUsername()">
+      <mat-icon>search</mat-icon> Search
+    </button>
+  </div>
+
+  <button mat-raised-button class="add-button" routerLink="/dashAdmin/users/register">
+    <mat-icon>add</mat-icon> Add User
+  </button>
+
+  <div *ngIf="users.length > 0; else noUsers">
+    <table class="user-table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td [ngClass]="getRoleClass(user.role)">{{ user.role }}</td>
+        <td class="action-icons">
+          <mat-icon (click)="editUser(user)">edit</mat-icon>
+          <mat-icon (click)="deleteUser(user.id)">delete</mat-icon>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Formulaire de mise à jour -->
+  <div *ngIf="selectedUser" class="update-form">
+    <h3>Update User: {{ selectedUser.username }}</h3>
+    <mat-form-field appearance="outline">
+      <mat-label>User name</mat-label>
+      <input matInput [(ngModel)]="selectedUser.username">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="selectedUser.email">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Role</mat-label>
+      <mat-select [(ngModel)]="selectedUser.role">
+        <mat-option *ngFor="let role of roles" [value]="role">{{ role }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="updateUser()">Update</button>
+    <button mat-button color="warn" (click)="cancelUpdate()">Cancel</button>
+  </div>
+
+  <ng-template #noUsers>
+    <p class="no-users-message">No users found.</p>
+  </ng-template>
+</div>

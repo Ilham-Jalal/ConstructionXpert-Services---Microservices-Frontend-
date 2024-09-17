@@ -1,0 +1,55 @@
+<div class="dashboard-container">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="header">
+      <div class="header-text">ConstructionXpert</div>
+    </div>
+
+    <div class="menu">
+      <h2>Dashboard</h2>
+      <ul>
+        <li [ngClass]="{'active': isActive('/dashAdmin/users')}">
+          <a routerLink="/dashAdmin/users">
+            <mat-icon>person</mat-icon>
+            <span>Users</span>
+          </a>
+        </li>
+        <li [ngClass]="{'active': isActive('/dashAdmin/projects')}">
+          <a routerLink="/dashAdmin/projects">
+            <mat-icon>assessment</mat-icon>
+            <span>Projects</span>
+          </a>
+        </li>
+
+        <li [ngClass]="{'active': isActive('/dashAdmin/tasks')}">
+          <a routerLink="/dashAdmin/tasks">
+            <mat-icon>task</mat-icon>
+            <span>Tasks</span>
+          </a>
+        </li>
+
+        <li [ngClass]="{'active': isActive('/dashAdmin/ressource')}">
+          <a routerLink="/dashAdmin/ressource">
+            <mat-icon>build</mat-icon>
+            <span>Resource</span>
+          </a>
+        </li>
+
+        <li [ngClass]="{'active': isActive('/dashboard/settings')}">
+          <a routerLink="/dashboard/settings">
+            <mat-icon>settings</mat-icon>
+            <span>Menu Settings</span>
+          </a>
+        </li>
+
+        <li (click)="logoutit()" style="background-color: #2980b9">
+          <button mat-button>Logout</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

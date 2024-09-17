@@ -24,7 +24,8 @@ export class AuthComponent implements OnInit{
       username: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(5)]]
     });
-    this.loginForm.get('password')?.valueChanges.subscribe(password => {
+    this.loginForm.get('password')?.valueChanges.subscribe(
+      password => {
       this.strengthClass = new PasswordStrengthPipe().transform(password);
     });
   }
@@ -43,7 +44,7 @@ export class AuthComponent implements OnInit{
   }
 
   onSubmit() {
-    
+
     if (this.loginForm.valid) {
       const loginRequest: AuthenticationRequest = this.loginForm.value;
       this.authService.login(loginRequest).subscribe({

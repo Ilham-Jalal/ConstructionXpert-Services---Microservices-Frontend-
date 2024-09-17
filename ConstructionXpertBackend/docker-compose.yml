@@ -6,20 +6,19 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: constructxpert_user_db
-      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
       - user-db:/var/lib/mysql
     healthcheck:
       test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
       interval: 10s
       retries: 5
-
   projectdb:
     image: "mysql:latest"
     restart: always
     environment:
       MYSQL_DATABASE: constructxpert_project_db
-      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
       - project-db:/var/lib/mysql
     healthcheck:
@@ -32,7 +31,7 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: constructxpert_task_db
-      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
       - task-db:/var/lib/mysql
     healthcheck:
@@ -45,7 +44,7 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: constructxpert_resource_db
-      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
       - resource-db:/var/lib/mysql
     healthcheck:
@@ -92,7 +91,7 @@ services:
       - CONFIG_SERVICE_URL=http://config-server:8888
       - SPRING_DATASOURCE_URL=jdbc:mysql://userdb:3306/constructxpert_user_db
       - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=1234
+      - SPRING_DATASOURCE_PASSWORD=
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://user-service:8080/actuator/health" ]
       interval: 10s
@@ -115,7 +114,7 @@ services:
       - CONFIG_SERVICE_URL=http://config-server:8888
       - SPRING_DATASOURCE_URL=jdbc:mysql://projectdb:3306/constructxpert_project_db
       - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=1234
+      - SPRING_DATASOURCE_PASSWORD=
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://project-service:8081/actuator/health" ]
       interval: 10s
@@ -125,7 +124,6 @@ services:
         condition: service_healthy
       projectdb:
         condition: service_healthy
-
 
   task-service:
     build: ./task-service
@@ -139,7 +137,7 @@ services:
       - CONFIG_SERVICE_URL=http://config-server:8888
       - SPRING_DATASOURCE_URL=jdbc:mysql://taskdb:3306/constructxpert_task_db
       - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=1234
+      - SPRING_DATASOURCE_PASSWORD=
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://task-service:8082/actuator/health" ]
       interval: 10s
@@ -149,7 +147,6 @@ services:
         condition: service_healthy
       taskdb:
         condition: service_healthy
-
 
   resource-service:
     build: ./resource-service
@@ -163,7 +160,7 @@ services:
       - CONFIG_SERVICE_URL=http://config-server:8888
       - SPRING_DATASOURCE_URL=jdbc:mysql://resourcedb:3306/constructxpert_resource_db
       - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=1234
+      - SPRING_DATASOURCE_PASSWORD=
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://resource-service:8083/actuator/health" ]
       interval: 10s
@@ -173,7 +170,6 @@ services:
         condition: service_healthy
       resourcedb:
         condition: service_healthy
-
 
   api-gateway-service:
     build: ./api-gateway-service

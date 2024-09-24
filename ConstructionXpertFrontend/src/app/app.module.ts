@@ -23,6 +23,12 @@ import { MatCardModule } from '@angular/material/card';
 import { SidebarComponent } from './features/dashboard/components/sidebar/sidebar.component';
 import { NavbarComponent } from './features/dashboard/components/navbar/navbar.component';
 import { MainComponent } from './features/dashboard/components/main/main.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { BaseChartDirective } from 'ng2-charts';
+import { ProjectLayoutComponent } from './shared/layouts/project-layout/project-layout.component';
+import { ProjectListComponent } from './shared/components/project-list/project-list.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -33,8 +39,14 @@ import { MainComponent } from './features/dashboard/components/main/main.compone
     SidebarComponent,
     NavbarComponent,
     MainComponent,
+    ProjectLayoutComponent,
+    ProjectListComponent,
   ],
   imports: [
+    MatMenuModule,
+    MatProgressBarModule,
+    FullCalendarModule,
+    BaseChartDirective,
     BrowserAnimationsModule,
     MatSidenavModule,
     MatListModule,

@@ -13,13 +13,14 @@ import { logout, setRole, setUser } from '../ngrx/auth.actions';
 import { JwtService } from './jwt.service';
 import { Store } from '@ngrx/store';
 import { LoginException } from '../exceptions/login.exception';
+import { environment } from '../../../environments/environment';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private apiUrl = 'http://localhost:9191/USER-SERVICE/api/auth';
+  private apiUrl = `${environment.apiUser}api/auth`;
 
   constructor(private http: HttpClient, private store: Store<AppState>, private jwtService: JwtService) {}
 

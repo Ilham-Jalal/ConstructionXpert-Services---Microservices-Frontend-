@@ -11,10 +11,12 @@ import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.Objects;
@@ -44,6 +46,9 @@ public class ProjectService {
     }
 
     public List<Project> getAllProjects() {
+        Pageable pageable = PageRequest.of(1, 6);
+        var page = projectRepository.findAll(pageable);
+        page.getContent();
         var projects = projectRepository.findAll();
         if (projects.isEmpty()) {
             throw new ProjectNotFoundException("Projects not found!");

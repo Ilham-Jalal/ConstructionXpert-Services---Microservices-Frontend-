@@ -8,7 +8,7 @@
 		<groupId>com</groupId>
 		<artifactId>constructxpert-services</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../pom.xml</relativePath> <!-- chemin relatif vers le fichier parent pom.xml -->
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<artifactId>resource-service</artifactId>
@@ -17,9 +17,9 @@
 	<description>Resource Service module for ConstructionXpert</description>
 
 	<properties>
-		<java.version>22</java.version>
-		<maven.compiler.source>22</maven.compiler.source>
-		<maven.compiler.target>22</maven.compiler.target>
+		<java.version>21</java.version>
+		<maven.compiler.source>21</maven.compiler.source>
+		<maven.compiler.target>21</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<start-class>com.resource_service.ResourceServiceApplication</start-class>
 	</properties>
@@ -47,10 +47,12 @@
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 
+
 	</dependencies>
 
 	<build>
 		<plugins>
+			<!-- Spring Boot Maven Plugin -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -69,6 +71,8 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<!-- Maven Compiler Plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -77,8 +81,33 @@
 					<target>${java.version}</target>
 					<compilerArgs>
 						<arg>--enable-preview</arg>
+						<arg>-Xlint:preview</arg>
 					</compilerArgs>
+					<fork>true</fork>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.2.5</version>
+				<configuration>
+					<argLine>--enable-preview</argLine>
+					<forkCount>1</forkCount>
+					<reuseForks>false</reuseForks>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.3.0.603</version>
+				<executions>
+					<execution>
+						<phase>verify</phase>
+						<goals>
+							<goal>sonar</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

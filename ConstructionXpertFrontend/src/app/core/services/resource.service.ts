@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ResourceDto } from '../dtos/ResourceDto';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ResourceService {
-  private apiUrl = 'http://localhost:9191/RESOURCE-SERVICE/api/resources';
+  private apiUrl = `${environment.apiResource}api/resources`;
 
   constructor(private http: HttpClient) {}
 

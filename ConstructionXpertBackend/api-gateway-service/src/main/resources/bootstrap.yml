@@ -11,9 +11,16 @@ spring:
       retry:
         maxAttempts: 20
     gateway:
-      global-cors:
-        cors-configurations:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        corsConfigurations:
           '[/**]':
-            allowedOriginPatterns: "*"
-            allowedMethods: "*"
-            allowCredentials: true
+            allowedOrigins: "http://localhost:4200"
+            allowedHeaders: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - DELETE
+              - PUT
+              - OPTIONS

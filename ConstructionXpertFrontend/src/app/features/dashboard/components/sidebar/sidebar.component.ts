@@ -1,4 +1,6 @@
-import { Component, ElementRef, Output, ViewChild, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
+import { AuthenticationService } from '../../../../core/services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,15 +8,16 @@ import { Component, ElementRef, Output, ViewChild, EventEmitter } from '@angular
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
-  @Output() sidebarToggle = new EventEmitter<boolean>();
-  isOpen = true;
-  @ViewChild('sidebar', { static: true }) sidebar!: ElementRef;
+  url!: string;
 
-  toggleSidebar() {
-    this.isOpen = !this.isOpen;
-    const sidebarElement = this.sidebar.nativeElement;
-    sidebarElement.classList.toggle('open', this.isOpen);
-    sidebarElement.classList.toggle('closed', !this.isOpen);
-    this.sidebarToggle.emit(this.isOpen);
+  constructor(private authService: AuthenticationService, private router: Router) {
+    this.url = this.router.url;
+  }
+
+  onLogout(): void {
+    console.log('loogoout');
+    
+    this.authService.logout();
+    this.router.navigate(['/login'], { queryParams: { returnUrl: this.url } });
   }
 }

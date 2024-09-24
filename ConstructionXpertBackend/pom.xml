@@ -14,16 +14,16 @@
 
 	<modules>
 		<module>api-gateway-service</module>
+		<module>resource-service</module>
 		<module>eureka-server</module>
 		<module>config-server</module>
 		<module>user-service</module>
 		<module>project-service</module>
 		<module>task-service</module>
-		<module>resource-service</module>
 	</modules>
 
 	<properties>
-		<java.version>22</java.version>
+		<java.version>21</java.version>
 		<org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
 		<springdoc.version>2.5.0</springdoc.version>
 		<lombok.version>1.18.32</lombok.version>
@@ -230,6 +230,18 @@
 			<optional>true</optional>
 		</dependency>
 
+		<!-- Pour MockMvc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- Pour Mockito -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-junit-jupiter</artifactId>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-bootstrap</artifactId>

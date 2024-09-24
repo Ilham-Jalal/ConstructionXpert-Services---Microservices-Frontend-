@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SupervisorDto } from '../dtos/SupervisorDto';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SupervisorService {
-  private apiUrl = 'http://localhost:9191/USER-SERVICE/api/supervisor';
+  private apiUrl = `${environment.apiUser}api/supervisor`;
 
   constructor(private http: HttpClient) {}
 

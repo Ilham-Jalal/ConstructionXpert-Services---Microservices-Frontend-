@@ -29,6 +29,9 @@
 		<lombok.version>1.18.32</lombok.version>
 		<junit.jupiter.version>5.9.3</junit.jupiter.version>
 		<mysql.connector.version>8.0.30</mysql.connector.version>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
+		<maven.compiler.release>17</maven.compiler.release>
 	</properties>
 
 	<dependencyManagement>
@@ -294,6 +297,19 @@
 							</exclude>
 						</excludes>
 					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.sonarsource.scanner.maven</groupId>
+					<artifactId>sonar-maven-plugin</artifactId>
+					<version>3.3.0.603</version>
+					<executions>
+						<execution>
+							<phase>verify</phase>
+							<goals>
+								<goal>sonar</goal>
+							</goals>
+						</execution>
+					</executions>
 				</plugin>
 			</plugins>
 		</pluginManagement>

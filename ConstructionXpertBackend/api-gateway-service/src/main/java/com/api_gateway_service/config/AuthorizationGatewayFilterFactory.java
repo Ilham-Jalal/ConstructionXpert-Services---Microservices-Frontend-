@@ -12,8 +12,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
-import static java.lang.StringTemplate.STR;
-
 @Component
 @Order(2)
 public class AuthorizationGatewayFilterFactory extends AbstractGatewayFilterFactory<AuthorizationGatewayFilterFactory.Config> implements Ordered {
@@ -24,7 +22,6 @@ public class AuthorizationGatewayFilterFactory extends AbstractGatewayFilterFact
         super(Config.class);
         this.jwtService = jwtService;
     }
-
 
     @Override
     public int getOrder() {
@@ -46,14 +43,17 @@ public class AuthorizationGatewayFilterFactory extends AbstractGatewayFilterFact
         if (path.startsWith(config.getUserServicePathPrefix())) {
             return checkUserServiceAuthorization(path, exchange, config);
         }
-        if (path.startsWith(config.getTaskServicePathPrefix()) ||
-                path.startsWith(config.getResourceServicePathPrefix()) ||
-                path.startsWith(config.getProjectServicePathPrefix())) {
-            return checkServiceAuthorization(path, exchange, config);
+        if (path.startsWith(config.getTaskServicePathPrefix())) {
+            return checkTaskServiceAuthorization(path, exchange, config);
+        }
+        if (path.startsWith(config.getResourceServicePathPrefix())) {
+            return checkResourceServiceAuthorization(path, exchange, config);
+        }
+        if (path.startsWith(config.getProjectServicePathPrefix())) {
+            return checkProjectServiceAuthorization(path, exchange, config);
         }
         return false;
     }
-
 
     private boolean checkUserServiceAuthorization(String path, ServerWebExchange exchange, Config config) {
         if (path.matches(config.getUserServiceGetAllUserPathPrefix() + ".*")) {
@@ -77,54 +77,65 @@ public class AuthorizationGatewayFilterFactory extends AbstractGatewayFilterFact
         return false;
     }
 
-
-    private boolean checkServiceAuthorization(String path, ServerWebExchange exchange, Config config) {
-        if (path.startsWith(config.getTaskServiceCreateTaskPathPrefix())) {
+    private boolean checkTaskServiceAuthorization(String path, ServerWebExchange exchange, Config config) {
+        if (path.matches(config.getTaskServiceCreateTaskPathPrefix() + ".*")) {
             return userHasRole(exchange, config.getSupervisorRole());
         }
-
-        if (isTaskServicePath(path, config)) {
+        if (path.matches(config.getTaskServiceGetTaskByIdPathPrefix() + ".*")) {
             return userHasRole(exchange, config.getClientRole()) || userHasRole(exchange, config.getSupervisorRole()) || userHasRole(exchange, config.getAdminRole());
         }
-
-        if (isResourceServicePath(path, config)) {
+        if (path.matches(config.getTaskServiceGetTasksByProjectIdPathPrefix() + ".*")) {
             return userHasRole(exchange, config.getClientRole()) || userHasRole(exchange, config.getSupervisorRole()) || userHasRole(exchange, config.getAdminRole());
         }
-
-        if (isProjectServicePath(path, config)) {
-            return userHasRole(exchange, config.getClientRole()) || userHasRole(exchange, config.getAdminRole()) || userHasRole(exchange, config.getSupervisorRole());
+        if (path.matches(config.getTaskServiceGetTasksIdsByProjectIdPathPrefix() + ".*")) {
+            return userHasRole(exchange, config.getClientRole()) || userHasRole(exchange, config.getSupervisorRole()) || userHasRole(exchange, config.getAdminRole());
         }
-
+        if (path.matches(config.getTaskServiceUpdateTaskPathPrefix() + ".*")) {
+            return userHasRole(exchange, config.getSupervisorRole());
+        }
+        if (path.matches(config.getTaskServiceDeleteTaskPathPrefix() + ".*")) {
+            return userHasRole(exchange, config.getSupervisorRole());
+        }
         return false;
     }
 
-    // Helper methods to simplify path checking
-    private boolean isTaskServicePath(String path, Config config) {
-        return path.startsWith(config.getTaskServiceGetTaskByIdPathPrefix()) ||
-                path.startsWith(config.getTaskServiceGetTasksByProjectIdPathPrefix()) ||
-                path.startsWith(config.getTaskServiceGetTasksIdsByProjectIdPathPrefix()) ||
-                path.startsWith(config.getTaskServiceUpdateTaskPathPrefix()) ||
-                path.startsWith(config.getTaskServiceDeleteTaskPathPrefix());
+    private boolean checkResourceServiceAuthorization(String path, ServerWebExchange exchange, Config config) {
+        if (path.matches(config.getResourceServicePostPathPrefix() + ".*")) {
+            return userHasRole(exchange, config.getClientRole()) || userHasRole(exchange, config.getSupervisorRole());
+        }
+        if (path.matches(config.getResourceServicePutPathPrefix() + ".*")) {
+            return userHasRole(exchange, config.getClientRole()) || userHasRole(exchange, config.getSupervisorRole());
+        }
+        if (path.matches(config.getResourceServiceDeletePathPrefix() + ".*")) {
+            return userHasRole(exchange, config.getClientRole()) || userHasRole(exchange, config.getSupervisorRole());
+        }
+        if (path.matches(config.getResourceServiceGetPathPrefix() + ".*")) {
+            return userHasRole(exchange, config.getClientRole()) || userHasRole(exchange, config.getAdminRole()) || userHasRole(exchange, config.getSupervisorRole());
+        }
+        if (path.matches(config.getResourceServiceGetAllPathPrefix() + ".*")) {
+            return userHasRole(exchange, config.getClientRole()) || userHasRole(exchange, config.getAdminRole()) || userHasRole(exchange, config.getSupervisorRole());
+        }
+        return false;
     }
 
-    private boolean isResourceServicePath(String path, Config config) {
-        return path.startsWith(config.getResourceServicePostPathPrefix()) ||
-                path.startsWith(config.getResourceServicePutPathPrefix()) ||
-                path.startsWith(config.getResourceServiceDeletePathPrefix()) ||
-                path.startsWith(config.getResourceServiceGetPathPrefix()) ||
-                path.startsWith(config.getResourceServiceGetAllPathPrefix());
+    private boolean checkProjectServiceAuthorization(String path, ServerWebExchange exchange, Config config) {
+        if (path.matches(config.getProjectServicePostPathPrefix() + ".*")) {
+            return userHasRole(exchange, config.getClientRole());
+        }
+        if (path.matches(config.getProjectServicePutPathPrefix() + ".*")) {
+            return userHasRole(exchange, config.getClientRole());
+        }
+        if (path.matches(config.getProjectServiceDeletePathPrefix() + ".*")) {
+            return userHasRole(exchange, config.getClientRole());
+        }
+        if (path.matches(config.getProjectServiceGetPathPrefix() + ".*")) {
+            return userHasRole(exchange, config.getClientRole()) || userHasRole(exchange, config.getAdminRole()) || userHasRole(exchange, config.getSupervisorRole());
+        }
+        if (path.matches(config.getProjectServiceGetAllPathPrefix() + ".*")) {
+            return userHasRole(exchange, config.getClientRole()) || userHasRole(exchange, config.getAdminRole()) || userHasRole(exchange, config.getSupervisorRole());
+        }
+        return false;
     }
-
-    private boolean isProjectServicePath(String path, Config config) {
-        return path.startsWith(config.getProjectServicePostPathPrefix()) ||
-                path.startsWith(config.getProjectServicePutPathPrefix()) ||
-                path.startsWith(config.getProjectServiceDeletePathPrefix()) ||
-                path.startsWith(config.getProjectServiceGetPathPrefix()) ||
-                path.startsWith(config.getProjectServiceGetAllPathPrefix());
-    }
-
-
-
 
     private boolean userHasRole(ServerWebExchange exchange, String requiredRole) {
         String token = exchange.getRequest().getHeaders().getFirst("Authorization");
@@ -169,9 +180,8 @@ public class AuthorizationGatewayFilterFactory extends AbstractGatewayFilterFact
         private String projectServiceGetPathPrefix = "/PROJECT-SERVICE/api/project/get-project-by-id";
         private String projectServiceGetAllPathPrefix = "/PROJECT-SERVICE/api/project/get-all-projects";
 
-
         private String adminRole = Role.ADMIN.name();
-        private String supervisorRole = Role.SUPERVISOR.name();
         private String clientRole = Role.CLIENT.name();
+        private String supervisorRole = Role.SUPERVISOR.name();
     }
 }

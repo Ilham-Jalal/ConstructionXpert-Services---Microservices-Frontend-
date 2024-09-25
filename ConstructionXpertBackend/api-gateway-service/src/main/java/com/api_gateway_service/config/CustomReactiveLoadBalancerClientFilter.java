@@ -25,7 +25,6 @@ import static org.springframework.http.HttpStatus.*;
 public class CustomReactiveLoadBalancerClientFilter implements GlobalFilter, Ordered {
 
     private static final Log log = LogFactory.getLog(CustomReactiveLoadBalancerClientFilter.class);
-
     public static final int LOAD_BALANCER_CLIENT_FILTER_ORDER = 10150;
 
     private final LoadBalancerClientFactory clientFactory;
@@ -47,6 +46,7 @@ public class CustomReactiveLoadBalancerClientFilter implements GlobalFilter, Ord
         URI url = exchange.getAttribute(GATEWAY_REQUEST_URL_ATTR);
         String schemePrefix = exchange.getAttribute(GATEWAY_SCHEME_PREFIX_ATTR);
 
+        // Proceed if the URL is not a load balancer scheme
         if (url == null || (!"lb".equals(url.getScheme()) && !"lb".equals(schemePrefix))) {
             return chain.filter(exchange);
         }
@@ -64,10 +64,10 @@ public class CustomReactiveLoadBalancerClientFilter implements GlobalFilter, Ord
         return choose(lbRequest, serviceId).doOnNext(response -> {
             if (!response.hasServer()) {
                 if (properties.isUse404()) {
-                    log.warn("No instance available for " + serviceId + ". Returning 404 status.");
-                    throw new ResponseStatusException(NOT_FOUND, "No instance available for " + serviceId);
+                    log.warn(String.format("No instance available for %s. Returning 404 status.", serviceId));
+                    throw new ResponseStatusException(NOT_FOUND, String.format("No instance available for %s", serviceId));
                 } else {
-                    throw new CustomLoadBalancerException("No instance available for " + serviceId);
+                    throw new CustomLoadBalancerException(String.format("No instance available for %s", serviceId));
                 }
             }
 
@@ -75,8 +75,7 @@ public class CustomReactiveLoadBalancerClientFilter implements GlobalFilter, Ord
             URI requestUrl = reconstructURI(instance, exchange.getRequest().getURI());
 
             exchange.getAttributes().put(GATEWAY_REQUEST_URL_ATTR, requestUrl);
-
-            log.info("Routing request to instance: " + instance.getUri());
+            log.info(String.format("Routing request to instance: %s", instance.getUri()));
         }).then(chain.filter(exchange));
     }
 
@@ -84,8 +83,8 @@ public class CustomReactiveLoadBalancerClientFilter implements GlobalFilter, Ord
         ReactorLoadBalancer<ServiceInstance> loadBalancer = clientFactory.getInstance(serviceId,
                 ReactorServiceInstanceLoadBalancer.class);
         if (loadBalancer == null) {
-            log.warn("No load balancer available for service: " + serviceId);
-            throw new CustomLoadBalancerException("No load balancer available for " + serviceId);
+            log.warn(String.format("No load balancer available for service: %s", serviceId));
+            throw new CustomLoadBalancerException(String.format("No load balancer available for %s", serviceId));
         }
         return loadBalancer.choose(lbRequest);
     }

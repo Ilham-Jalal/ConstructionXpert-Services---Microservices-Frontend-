@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Setter
 @Table(name = "admin")
 public class Admin extends User implements Serializable {
-
+ String name;
     public Admin(Long id, String username, String password, String email, Role role, String profilePicture) {
         super(id, username, password, email, role, profilePicture);
         this.setRole(Role.ADMIN);

@@ -11,7 +11,7 @@ pipeline {
         DOCKER_COMPOSE_FILE = 'docker-compose.yml'
         DOCKER_CREDENTIALS_ID = 'docker-credentials-id'
         SONARQUBE = 'SonarQubeServer'
-        SONARQUBE_TOKEN = credentials('SonarToken')
+        SONARTOKEN = credentials('SonarToken')
     }
 
     stages {
@@ -34,7 +34,7 @@ pipeline {
             steps {
                 dir('ConstructionXpertBackend') {
                     withSonarQubeEnv(SONARQUBE) {
-                        bat "mvn sonar:sonar -Dsonar.token=${SONARQUBE_TOKEN}"
+                        bat "mvn sonar:sonar -Dsonar.token=${SONARTOKEN}"
                     }
                 }
             }

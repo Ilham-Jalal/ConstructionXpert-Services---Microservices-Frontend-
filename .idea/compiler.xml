@@ -2,7 +2,6 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="true" />
       <profile name="Annotation profile for constructxpert-services" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -29,7 +28,7 @@
       <module name="config-server" options="--enable-preview -Amapstruct.defaultComponentModel=spring" />
       <module name="eureka-server" options="--enable-preview -Amapstruct.defaultComponentModel=spring" />
       <module name="project-service" options="--enable-preview -Amapstruct.defaultComponentModel=spring" />
-      <module name="resource-service" options="--enable-preview -Amapstruct.defaultComponentModel=spring" />
+      <module name="resource-service" options="--enable-preview -Xlint:preview -Amapstruct.defaultComponentModel=spring" />
       <module name="task-service" options="--enable-preview -Amapstruct.defaultComponentModel=spring" />
       <module name="user-service" options="--enable-preview -Amapstruct.defaultComponentModel=spring" />
     </option>

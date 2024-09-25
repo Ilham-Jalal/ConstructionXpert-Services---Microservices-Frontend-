@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="11a5d623-8859-4a41-bd88-7504b2fd3393" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/construction.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/config-server/src/main/resources/configurations/project-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ConstructionXpertBackend/config-server/src/main/resources/configurations/project-service.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/config-server/src/main/resources/configurations/resource-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ConstructionXpertBackend/config-server/src/main/resources/configurations/resource-service.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/config-server/src/main/resources/configurations/task-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ConstructionXpertBackend/config-server/src/main/resources/configurations/task-service.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/config-server/src/main/resources/configurations/user-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ConstructionXpertBackend/config-server/src/main/resources/configurations/user-service.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ConstructionXpertBackend/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertFrontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ConstructionXpertFrontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertFrontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ConstructionXpertFrontend/src/app/app-routing.module.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2mWN1bUbqDupYlYIdkEjyVTJl5B" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Docker.ConstructionXpertBackend.api-gateway-service: Compose Deployment.executor": "Run",
+    "Docker.ConstructionXpertBackend.resource-service: Compose Deployment.executor": "Run",
+    "Docker.ConstructionXpertBackend: Compose Deployment.executor": "Run",
+    "Maven.constructxpert-services [clean].executor": "Run",
+    "Maven.constructxpert-services [test].executor": "Run",
+    "Maven.project-service [clean].executor": "Run",
+    "Maven.project-service [compile].executor": "Run",
+    "Maven.project-service [test].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.configurations.included.in.services": "true",
+    "ts.external.directory.path": "C:\\Users\\user\\Desktop\\ConstructionXpert-Services---Microservices-Frontend-\\ConstructionXpertFrontend\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Docker.ConstructionXpertBackend.resource-service: Compose Deployment">
+    <configuration name="ApiGatewayServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="api-gateway-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.api_gateway_service.ApiGatewayServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConfigServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="config-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.config_server.ConfigServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="eureka-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.eureka_server.EurekaServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProjectServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="project-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.project_service.ProjectServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ResourceServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="resource-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.resource_service.ResourceServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TaskServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="task-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.task_service.TaskServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="user-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.user_service.UserServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConstructionXpertBackend: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="ConstructionXpertBackend/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="ConstructionXpertBackend.api-gateway-service: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="api-gateway-service" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="ConstructionXpertBackend/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="ConstructionXpertBackend.resource-service: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="resource-service" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="ConstructionXpertBackend/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.ConstructionXpertBackend.resource-service: Compose Deployment" />
+        <item itemvalue="Docker.ConstructionXpertBackend.api-gateway-service: Compose Deployment" />
+        <item itemvalue="Docker.ConstructionXpertBackend: Compose Deployment" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="11a5d623-8859-4a41-bd88-7504b2fd3393" name="Changes" comment="" />
+      <created>1727188158299</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1727188158299</updated>
+      <workItem from="1727188159456" duration="434000" />
+      <workItem from="1727188871725" duration="3538000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

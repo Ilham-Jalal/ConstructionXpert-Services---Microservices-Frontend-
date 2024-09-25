@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/ConstructionXpert Services - Microservices/api-gateway-service/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/ConstructionXpert Services - Microservices/api-gateway-service/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/ConstructionXpert Services - Microservices/config-server/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/ConstructionXpert Services - Microservices/config-server/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/ConstructionXpert Services - Microservices/eureka-server/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/ConstructionXpert Services - Microservices/eureka-server/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/ConstructionXpert Services - Microservices/project-service/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/ConstructionXpert Services - Microservices/project-service/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/ConstructionXpert Services - Microservices/resource-service/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/ConstructionXpert Services - Microservices/resource-service/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/ConstructionXpert Services - Microservices/task-service/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/ConstructionXpert Services - Microservices/task-service/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/ConstructionXpert Services - Microservices/user-service/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/ConstructionXpert Services - Microservices/user-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ConstructionXpertBackend/api-gateway-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ConstructionXpertBackend/api-gateway-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ConstructionXpertBackend/config-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ConstructionXpertBackend/config-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ConstructionXpertBackend/eureka-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ConstructionXpertBackend/eureka-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/resources" charset="UTF-8" />
   </component>
 </project>

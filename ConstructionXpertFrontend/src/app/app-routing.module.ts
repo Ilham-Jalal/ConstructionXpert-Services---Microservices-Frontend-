@@ -9,18 +9,18 @@ import { ProjectListComponent } from './shared/components/project-list/project-l
 import { MainComponent } from './features/dashboard/components/main/main.component';
 
 const routes: Routes = [
-  { 
-    path: '', 
-    redirectTo: 'login', 
-    pathMatch: 'full' 
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
   },
-  { 
-    path: 'login', 
-    component: AuthComponent 
+  {
+    path: 'login',
+    component: AuthComponent
   },
-  { 
-    path: 'dashboard', 
-    canActivate: [authGuard], 
+  {
+    path: 'dashboard',
+    canActivate: [authGuard],
     component: DashboardComponent,
     canActivateChild: [roleGuard],
     data: [ Role.ADMIN, Role.CLIENT, Role.SUPERVISOR ],
@@ -47,6 +47,7 @@ const routes: Routes = [
 
 ];
 
+// @ts-ignore
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

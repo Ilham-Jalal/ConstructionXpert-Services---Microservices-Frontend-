@@ -26,27 +26,30 @@ public class ResourceService {
     }
 
     public ResourceDto getResourceById(Long id) {
-        var resource = resourceRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(STR."Resource with \{id} not found !"));
+        var resource = resourceRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(String.format("Resource with %d not found!", id)));
         return resourceMapper.toDto(resource);
     }
 
     public List<Resource> getAllResources() {
         var resources = resourceRepository.findAll();
         if (resources.isEmpty()) {
-            throw new ResourceNotFoundException("Tasks not founds");
+            throw new ResourceNotFoundException("Resources not found");
         }
         return resources;
     }
 
     public ResourceDto updateResource(Long id, ResourceDto resourceDto) {
-        var resource = resourceRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(STR."Resource with \{id} not found !"));
+        var resource = resourceRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(String.format("Resource with %d not found!", id)));
         var updatedResource = resourceMapper.partialUpdate(resourceDto, resource);
         var savedResource = resourceRepository.save(updatedResource);
         return resourceMapper.toDto(savedResource);
     }
 
     public void deleteResource(Long id) {
-        var resource = resourceRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(STR."Resource with \{id} not found !"));
+        var resource = resourceRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(String.format("Resource with %d not found!", id)));
         resourceRepository.delete(resource);
     }
 }

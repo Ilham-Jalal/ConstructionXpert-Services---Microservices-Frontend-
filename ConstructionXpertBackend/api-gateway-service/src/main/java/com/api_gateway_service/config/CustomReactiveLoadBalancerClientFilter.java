@@ -64,10 +64,10 @@ public class CustomReactiveLoadBalancerClientFilter implements GlobalFilter, Ord
         return choose(lbRequest, serviceId).doOnNext(response -> {
             if (!response.hasServer()) {
                 if (properties.isUse404()) {
-                    log.warn(STR."No instance available for \{serviceId}. Returning 404 status.");
-                    throw new ResponseStatusException(NOT_FOUND, STR."No instance available for \{serviceId}");
+                    log.warn("No instance available for " + serviceId + ". Returning 404 status.");
+                    throw new ResponseStatusException(NOT_FOUND, "No instance available for " + serviceId);
                 } else {
-                    throw new CustomLoadBalancerException(STR."No instance available for \{serviceId}");
+                    throw new CustomLoadBalancerException("No instance available for " + serviceId);
                 }
             }
 
@@ -76,7 +76,7 @@ public class CustomReactiveLoadBalancerClientFilter implements GlobalFilter, Ord
 
             exchange.getAttributes().put(GATEWAY_REQUEST_URL_ATTR, requestUrl);
 
-            log.info(STR."Routing request to instance: \{instance.getUri()}");
+            log.info("Routing request to instance: " + instance.getUri());
         }).then(chain.filter(exchange));
     }
 
@@ -84,8 +84,8 @@ public class CustomReactiveLoadBalancerClientFilter implements GlobalFilter, Ord
         ReactorLoadBalancer<ServiceInstance> loadBalancer = clientFactory.getInstance(serviceId,
                 ReactorServiceInstanceLoadBalancer.class);
         if (loadBalancer == null) {
-            log.warn(STR."No load balancer available for service: \{serviceId}");
-            throw new CustomLoadBalancerException(STR."No load balancer available for \{serviceId}");
+            log.warn("No load balancer available for service: " + serviceId);
+            throw new CustomLoadBalancerException("No load balancer available for " + serviceId);
         }
         return loadBalancer.choose(lbRequest);
     }

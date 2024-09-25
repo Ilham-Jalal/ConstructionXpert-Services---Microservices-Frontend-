@@ -32,6 +32,18 @@
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
 		<maven.compiler.release>17</maven.compiler.release>
+		<sonar.projectKey>constructxpert-services</sonar.projectKey>
+		<sonar.projectName>constructxpert-services</sonar.projectName>
+		<sonar.projectVersion>0.0.1-SNAPSHOT</sonar.projectVersion>
+		<sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
+		<sonar.java.source>17</sonar.java.source>
+		<sonar.java.enablePreview>true</sonar.java.enablePreview>
+		<sonar.sources>src/main/java</sonar.sources>
+		<sonar.tests>src/test/java</sonar.tests>
+		<sonar.coverage.exclusions>/target/, /src/</sonar.coverage.exclusions>
+		<sonar.cpd.exclusions>/target/, /src/</sonar.cpd.exclusions>
+		<sonar.java.binaries>target/classes</sonar.java.binaries>
+		<sonar.junit.reportsPath>*/target/surefire-reports/TEST-.xml</sonar.junit.reportsPath>
 	</properties>
 
 	<dependencyManagement>
@@ -299,17 +311,12 @@
 					</configuration>
 				</plugin>
 				<plugin>
-					<groupId>org.sonarsource.scanner.maven</groupId>
-					<artifactId>sonar-maven-plugin</artifactId>
-					<version>3.3.0.603</version>
-					<executions>
-						<execution>
-							<phase>verify</phase>
-							<goals>
-								<goal>sonar</goal>
-							</goals>
-						</execution>
-					</executions>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>3.5.0</version>
+					<configuration>
+						<argLine>--enable-preview</argLine>
+					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>

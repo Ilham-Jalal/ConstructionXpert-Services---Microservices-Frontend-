@@ -13,6 +13,9 @@ services:
       test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
       interval: 10s
       retries: 5
+    networks:
+      - micro-net
+    
   projectdb:
     image: "mysql:latest"
     restart: always
@@ -25,6 +28,8 @@ services:
       test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
       interval: 10s
       retries: 5
+    networks:
+      - micro-net
 
   taskdb:
     image: "mysql:latest"
@@ -38,6 +43,8 @@ services:
       test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
       interval: 10s
       retries: 5
+    networks:
+      - micro-net
 
   resourcedb:
     image: "mysql:latest"
@@ -51,6 +58,8 @@ services:
       test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
       interval: 10s
       retries: 5
+    networks:
+      - micro-net
 
   config-server:
     build: ./config-server
@@ -63,6 +72,8 @@ services:
       test: [ "CMD", "curl", "-f", "http://config-server:8888/actuator/health" ]
       interval: 10s
       retries: 4
+    networks:
+      - micro-net
 
   eureka-server:
     build: ./eureka-server
@@ -78,6 +89,8 @@ services:
     depends_on:
       config-server:
         condition: service_healthy
+    networks:
+      - micro-net
 
   user-service:
     build: ./user-service
@@ -101,6 +114,8 @@ services:
         condition: service_healthy
       userdb:
         condition: service_healthy
+    networks:
+      - micro-net
 
   project-service:
     build: ./project-service
@@ -124,6 +139,8 @@ services:
         condition: service_healthy
       projectdb:
         condition: service_healthy
+    networks:
+      - micro-net
 
   task-service:
     build: ./task-service
@@ -147,6 +164,8 @@ services:
         condition: service_healthy
       taskdb:
         condition: service_healthy
+    networks:
+      - micro-net
 
   resource-service:
     build: ./resource-service
@@ -170,6 +189,8 @@ services:
         condition: service_healthy
       resourcedb:
         condition: service_healthy
+    networks:
+      - micro-net
 
   api-gateway-service:
     build: ./api-gateway-service
@@ -188,9 +209,15 @@ services:
     depends_on:
       config-server:
         condition: service_healthy
+    networks:
+      - micro-net
 
 volumes:
   user-db:
   project-db:
   task-db:
   resource-db:
+
+networks:
+  micro-net:
+    driver: bridge

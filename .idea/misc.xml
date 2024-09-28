@@ -5,11 +5,18 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/ConstructionXpertBackend/pom.xml" />
+        <option value="$PROJECT_DIR$/ConstructionXpertBackend/eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/ConstructionXpertBackend/config-server/pom.xml" />
+        <option value="$PROJECT_DIR$/ConstructionXpertBackend/project-service/pom.xml" />
+        <option value="$PROJECT_DIR$/ConstructionXpertBackend/api-gateway-service/pom.xml" />
+        <option value="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/pom.xml" />
+        <option value="$PROJECT_DIR$/ConstructionXpertBackend/task-service/pom.xml" />
+        <option value="$PROJECT_DIR$/ConstructionXpertBackend/user-service/pom.xml" />
       </list>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="22" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/out" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="21 (2)" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/ConstructionXpertBackend" />
   </component>
 </project>

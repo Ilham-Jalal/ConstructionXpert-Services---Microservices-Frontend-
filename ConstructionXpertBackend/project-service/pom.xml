@@ -8,7 +8,7 @@
 		<groupId>com</groupId>
 		<artifactId>constructxpert-services</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../pom.xml</relativePath>
+		<relativePath>../pom.xml</relativePath> <!-- chemin relatif vers le fichier parent pom.xml -->
 	</parent>
 
 	<artifactId>project-service</artifactId>
@@ -81,12 +81,17 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.5.0</version>
-				<configuration>
-					<argLine>--enable-preview</argLine>
-				</configuration>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.3.0.603</version>
+				<executions>
+					<execution>
+						<phase>verify</phase>
+						<goals>
+							<goal>sonar</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

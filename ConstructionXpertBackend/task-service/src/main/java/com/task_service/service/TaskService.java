@@ -2,17 +2,26 @@ package com.task_service.service;
 
 import com.task_service.client.RequestContext;
 import com.task_service.dto.TaskDto;
+import com.task_service.enums.Priority;
+import com.task_service.enums.Status;
 import com.task_service.exception.TaskNotFoundException;
 import com.task_service.mapper.TaskMapper;
 import com.task_service.model.Task;
 import com.task_service.repository.TaskRepository;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import jakarta.persistence.criteria.Predicate;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -158,4 +167,81 @@ public class TaskService {
     public String projectServiceFallback(Long projectId, Throwable throwable) {
         return "Project service is temporarily unavailable. Please try again later.";
     }
+
+    public Page<TaskDto> getAllTasks(int page, int size, String sortField, String sortDirection) {
+        Sort.Direction direction = sortDirection.equalsIgnoreCase("asc") ? Sort.Direction.ASC : Sort.Direction.DESC;
+        Pageable pageable = PageRequest.of(page, size, Sort.by(direction, sortField));
+        var tasks = taskRepository.findAll(pageable);
+        if (tasks.getContent().isEmpty()) {
+            throw new TaskNotFoundException("Tasks not found!");
+        }
+        return tasks.map(taskMapper::toDto);
+    }
+
+    public Page<Task> dynamicFilterTasks(String title, String type, Date startDate, Date endDate,
+                                            Priority priority, Status status,
+                                            int page, int size, String sortField, String sortDirection) {
+        Sort.Direction direction = sortDirection.equalsIgnoreCase("asc") ? Sort.Direction.ASC : Sort.Direction.DESC;
+        Pageable pageable = PageRequest.of(page, size, Sort.by(direction, sortField));
+
+        Specification<Task> spec = (root, query, criteriaBuilder) -> {
+            List<Predicate> predicates = new ArrayList<>();
+
+            if (title != null && !title.isEmpty()) {
+                predicates.add(criteriaBuilder.like(criteriaBuilder.lower(root.get("title")), "%" + title.toLowerCase() + "%"));
+            }
+
+            if (type != null && !type.isEmpty()) {
+                predicates.add(criteriaBuilder.equal(root.get("type"), type));
+            }
+
+            if (startDate != null) {
+                predicates.add(criteriaBuilder.greaterThanOrEqualTo(root.get("startDate"), startDate));
+            }
+
+            if (endDate != null) {
+                predicates.add(criteriaBuilder.lessThanOrEqualTo(root.get("endDate"), endDate));
+            }
+
+            if (priority != null) {
+                predicates.add(criteriaBuilder.equal(root.get("priority"), priority));
+            }
+
+            if (status != null) {
+                predicates.add(criteriaBuilder.equal(root.get("status"), status));
+            }
+
+            return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
+        };
+
+        return taskRepository.findAll(spec, pageable);
+    }
+
+    public Page<Task> dynamicSearchTasks(String input, int page, int size, String sortField, String sortDirection) {
+        Sort.Direction direction = sortDirection.equalsIgnoreCase("asc") ? Sort.Direction.ASC : Sort.Direction.DESC;
+        Pageable pageable = PageRequest.of(page, size, Sort.by(direction, sortField));
+
+        Specification<Task> spec = (root, query, criteriaBuilder) -> {
+            List<Predicate> predicates = new ArrayList<>();
+
+            if (input != null && !input.isEmpty()) {
+                String searchPattern = "%" + input.toLowerCase() + "%";
+                predicates.add(criteriaBuilder.or(
+                        criteriaBuilder.like(criteriaBuilder.lower(root.get("title")), searchPattern),
+                        criteriaBuilder.like(criteriaBuilder.lower(root.get("description")), searchPattern)
+                ));
+            }
+
+            return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
+        };
+
+        return taskRepository.findAll(spec, pageable);
+    }
+
+//    public List<String> autocompleteSearchInput(String input) {
+//        if (input == null || input.isEmpty()) {
+//            return List.of();
+//        }
+//        return taskRepository.findAutocompleteSuggestions("%" + input.toLowerCase() + "%");
+//    }
 }

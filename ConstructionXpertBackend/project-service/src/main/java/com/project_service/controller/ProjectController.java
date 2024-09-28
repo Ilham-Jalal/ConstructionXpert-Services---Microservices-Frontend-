@@ -1,12 +1,15 @@
 package com.project_service.controller;
 
 import com.project_service.dto.ProjectDto;
+import com.project_service.enums.Status;
 import com.project_service.exception.ProjectNotFoundException;
 import com.project_service.service.ProjectService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.sql.Date;
 
 @RestController
 @RequestMapping("/api/project")
@@ -16,9 +19,13 @@ public class ProjectController {
     private final ProjectService projectService;
 
     @GetMapping("/get-all-projects")
-    public ResponseEntity<?> getAllProjects() {
+    public ResponseEntity<?> getAllProjects(
+            @RequestParam(defaultValue = "0", name = "page") int page,
+            @RequestParam(defaultValue = "10", name = "size") int size,
+            @RequestParam(defaultValue = "name", name = "sortField") String sortField,
+            @RequestParam(defaultValue = "asc", name = "sortDirection") String sortDirection) {
         try {
-            var projects = projectService.getAllProjects();
+            var projects = projectService.getAllProjects(page, size, sortField, sortDirection);
             return ResponseEntity.ok(projects);
         } catch (ProjectNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
@@ -64,7 +71,52 @@ public class ProjectController {
             return ResponseEntity.noContent().build();
         } catch (ProjectNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-        } catch (Exception e){
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/dynamic-filter")
+    public ResponseEntity<?> dynamicFilterProjects(
+            @RequestParam(required = false, name = "geolocation") String geolocation,
+            @RequestParam(required = false, name = "status") Status status,
+            @RequestParam(required = false, name = "minBudget") Double minBudget,
+            @RequestParam(required = false, name = "maxBudget") Double maxBudget,
+            @RequestParam(required = false, name = "dateStart") Date dateStart,
+            @RequestParam(required = false, name = "dateEnd") Date dateEnd,
+            @RequestParam(defaultValue = "0", name = "page") int page,
+            @RequestParam(defaultValue = "10", name = "size") int size,
+            @RequestParam(defaultValue = "name", name = "sortField") String sortField,
+            @RequestParam(defaultValue = "asc", name = "sortDirection") String sortDirection) {
+        try {
+            var projects = projectService.dynamicFilterProjects(geolocation, status, minBudget, maxBudget, dateStart, dateEnd, page, size, sortField, sortDirection);
+            return ResponseEntity.ok(projects);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/dynamic-search")
+    public ResponseEntity<?> dynamicSearchProjects(
+            @RequestParam("input") String input,
+            @RequestParam(defaultValue = "0", name = "page") int page,
+            @RequestParam(defaultValue = "10", name = "size") int size,
+            @RequestParam(defaultValue = "name", name = "sortField") String sortField,
+            @RequestParam(defaultValue = "asc", name = "sortDirection") String sortDirection) {
+        try {
+            var projects = projectService.dynamicSearchProjects(input, page, size, sortField, sortDirection);
+            return ResponseEntity.ok(projects);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/autocomplete-search")
+    public ResponseEntity<?> autocompleteSearchInput(@RequestParam("input") String input) {
+        try {
+            var suggestions = projectService.autocompleteSearchInput(input);
+            return ResponseEntity.ok(suggestions);
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }

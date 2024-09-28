@@ -3,7 +3,6 @@ package com.task_service;
 import com.task_service.controller.TaskController;
 import com.task_service.dto.TaskDto;
 import com.task_service.exception.TaskNotFoundException;
-import com.task_service.model.Task;
 import com.task_service.service.TaskService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,9 +11,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
-import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -51,7 +47,7 @@ public class TaskControllerTests {
 
         ResponseEntity<?> response = taskController.createTask(inputDto);
 
-        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
         assertEquals("Error", response.getBody());
     }
 
@@ -76,40 +72,6 @@ public class TaskControllerTests {
 
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
         assertEquals("Task not found", response.getBody());
-    }
-
-    @Test
-    void getTasksByProjectId_Success() {
-        Long projectId = 1L;
-        List<Task> tasks = Arrays.asList(new Task(), new Task());
-        when(taskService.getTasksByProjectId(projectId)).thenReturn(tasks);
-
-        ResponseEntity<?> response = taskController.getTasksByProjectId(projectId);
-
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals(tasks, response.getBody());
-    }
-
-    @Test
-    void getTasksByProjectId_Exception() {
-        Long projectId = 1L;
-        when(taskService.getTasksByProjectId(projectId)).thenThrow(new RuntimeException("Error"));
-
-        ResponseEntity<?> response = taskController.getTasksByProjectId(projectId);
-
-        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
-        assertEquals("Error", response.getBody());
-    }
-
-    @Test
-    void getTasksIdsByProjectId() {
-        Long projectId = 1L;
-        List<Long> taskIds = Arrays.asList(1L, 2L, 3L);
-        when(taskService.getTasksIdsByProjectId(projectId)).thenReturn(taskIds);
-
-        List<Long> response = taskController.getTasksIdsByProjectId(projectId);
-
-        assertEquals(taskIds, response);
     }
 
     @Test
@@ -141,12 +103,12 @@ public class TaskControllerTests {
     void updateTask_Exception() {
         Long taskId = 1L;
         TaskDto inputDto = new TaskDto();
-        when(taskService.updateTask(taskId, inputDto)).thenThrow(new RuntimeException("Error"));
+        when(taskService.updateTask(taskId, inputDto)).thenThrow(new TaskNotFoundException(String.valueOf(taskId)));
 
         ResponseEntity<?> response = taskController.updateTask(taskId, inputDto);
 
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals("Error", response.getBody());
+        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+        assertEquals(new TaskNotFoundException(String.valueOf(taskId)).getMessage(), response.getBody());
     }
 
     @Test

@@ -14,7 +14,8 @@ public class FeignRequestInterceptor implements RequestInterceptor {
     public void apply(RequestTemplate template) {
         String jwtToken = RequestContext.getJwtToken();
         if (jwtToken != null) {
-            template.header(HttpHeaders.AUTHORIZATION, String.format("Bearer %s", jwtToken));
+            template.header(HttpHeaders.AUTHORIZATION, STR."Bearer \{jwtToken}");
         }
     }
 }
+

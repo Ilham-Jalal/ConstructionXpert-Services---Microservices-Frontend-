@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/ConstructionXpert-Services---Microservices-Frontend-.iml" filepath="$PROJECT_DIR$/.idea/ConstructionXpert-Services---Microservices-Frontend-.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ConstructionXpertBackend/constructxpert-services.iml" filepath="$PROJECT_DIR$/ConstructionXpertBackend/constructxpert-services.iml" />
     </modules>
   </component>
 </project>

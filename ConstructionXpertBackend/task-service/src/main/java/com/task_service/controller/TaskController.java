@@ -79,18 +79,17 @@ public class TaskController {
 
     @GetMapping("/dynamic-filter")
     public ResponseEntity<?> dynamicFilterTasks(
-            @RequestParam(required = false) String title,
-            @RequestParam(required = false) String type,
-            @RequestParam(required = false) Date startDate,
-            @RequestParam(required = false) Date endDate,
-            @RequestParam(required = false) Priority priority,
-            @RequestParam(required = false) Status status,
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size,
-            @RequestParam(defaultValue = "title") String sortField,
-            @RequestParam(defaultValue = "asc") String sortDirection) {
+            @RequestParam(required = false, name = "type") String type,
+            @RequestParam(required = false, name = "startDate") Date startDate,
+            @RequestParam(required = false, name = "endDate") Date endDate,
+            @RequestParam(required = false, name = "priority") Priority priority,
+            @RequestParam(required = false, name = "status") Status status,
+            @RequestParam(defaultValue = "0", name = "page") int page,
+            @RequestParam(defaultValue = "10", name = "size") int size,
+            @RequestParam(defaultValue = "title", name = "sortField") String sortField,
+            @RequestParam(defaultValue = "asc", name = "sortDirection") String sortDirection) {
         try {
-            var tasks = taskService.dynamicFilterTasks(title, type, startDate, endDate, priority, status, page, size, sortField, sortDirection);
+            var tasks = taskService.dynamicFilterTasks(type, startDate, endDate, priority, status, page, size, sortField, sortDirection);
             return ResponseEntity.ok(tasks);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
@@ -99,11 +98,11 @@ public class TaskController {
 
     @GetMapping("/dynamic-search")
     public ResponseEntity<?> dynamicSearchTasks(
-            @RequestParam String input,
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size,
-            @RequestParam(defaultValue = "title") String sortField,
-            @RequestParam(defaultValue = "asc") String sortDirection) {
+            @RequestParam("input") String input,
+            @RequestParam(defaultValue = "0", name = "page") int page,
+            @RequestParam(defaultValue = "10", name = "size") int size,
+            @RequestParam(defaultValue = "title", name = "sortField") String sortField,
+            @RequestParam(defaultValue = "asc", name = "sortDirection") String sortDirection) {
         try {
             var tasks = taskService.dynamicSearchTasks(input, page, size, sortField, sortDirection);
             return ResponseEntity.ok(tasks);
@@ -112,13 +111,13 @@ public class TaskController {
         }
     }
 
-//    @GetMapping("/autocomplete-search")
-//    public ResponseEntity<?> autocompleteSearchInput(@RequestParam String input) {
-//        try {
-//            var suggestions = taskService.autocompleteSearchInput(input);
-//            return ResponseEntity.ok(suggestions);
-//        } catch (Exception e) {
-//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-//        }
-//    }
+    @GetMapping("/autocomplete-search")
+    public ResponseEntity<?> autocompleteSearchInput(@RequestParam("input") String input) {
+        try {
+            var suggestions = taskService.autocompleteSearchInput(input);
+            return ResponseEntity.ok(suggestions);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
 }

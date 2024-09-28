@@ -178,7 +178,7 @@ public class TaskService {
         return tasks.map(taskMapper::toDto);
     }
 
-    public Page<Task> dynamicFilterTasks(String title, String type, Date startDate, Date endDate,
+    public Page<Task> dynamicFilterTasks(String type, Date startDate, Date endDate,
                                             Priority priority, Status status,
                                             int page, int size, String sortField, String sortDirection) {
         Sort.Direction direction = sortDirection.equalsIgnoreCase("asc") ? Sort.Direction.ASC : Sort.Direction.DESC;
@@ -186,10 +186,6 @@ public class TaskService {
 
         Specification<Task> spec = (root, query, criteriaBuilder) -> {
             List<Predicate> predicates = new ArrayList<>();
-
-            if (title != null && !title.isEmpty()) {
-                predicates.add(criteriaBuilder.like(criteriaBuilder.lower(root.get("title")), "%" + title.toLowerCase() + "%"));
-            }
 
             if (type != null && !type.isEmpty()) {
                 predicates.add(criteriaBuilder.equal(root.get("type"), type));
@@ -238,10 +234,10 @@ public class TaskService {
         return taskRepository.findAll(spec, pageable);
     }
 
-//    public List<String> autocompleteSearchInput(String input) {
-//        if (input == null || input.isEmpty()) {
-//            return List.of();
-//        }
-//        return taskRepository.findAutocompleteSuggestions("%" + input.toLowerCase() + "%");
-//    }
+    public List<String> autocompleteSearchInput(String input) {
+        if (input == null || input.isEmpty()) {
+            return List.of();
+        }
+        return taskRepository.findAutocompleteSuggestions(input);
+    }
 }

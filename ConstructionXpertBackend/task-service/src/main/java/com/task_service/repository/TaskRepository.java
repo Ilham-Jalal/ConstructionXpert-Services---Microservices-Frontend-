@@ -16,6 +16,6 @@ public interface TaskRepository extends JpaRepository<Task, Long>, JpaSpecificat
     @Query("select t.id from Task t where t.projectId = ?1")
     List<Long> getIdsByProject(Long id);
 
-//    @Query(name = "Task.findFilteredTasks")
-//    List<String> findAutocompleteSuggestions(@Param("input") String input);
+    @Query(name = "Task.findAutocompleteSuggestions")
+    List<String> findAutocompleteSuggestions(@Param("input") String input);
 }

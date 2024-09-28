@@ -10,16 +10,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-//@NamedQueries({
-//        @NamedQuery(
-//                name = "Task.findAutocompleteSuggestions",
-//                query = "SELECT t.title FROM Task t WHERE " +
-//                        "(:input IS NULL OR " +
-//                        "(LOWER(t.title) LIKE LOWER(CONCAT('%', :input, '%')) OR " +
-//                        "LOWER(t.description) LIKE LOWER(CONCAT('%', :input, '%'))))"
-//        )
-//})
-
+@NamedQueries({
+        @NamedQuery(
+                name = "Task.findAutocompleteSuggestions",
+                query = "SELECT DISTINCT CASE " +
+                        "WHEN LOWER(t.title) LIKE LOWER(CONCAT('%', :input, '%')) THEN t.title " +
+                        "WHEN LOWER(t.description) LIKE LOWER(CONCAT('%', :input, '%')) THEN t.description " +
+                        "END " +
+                        "FROM Task t " +
+                        "WHERE :input IS NOT NULL " +
+                        "AND (LOWER(t.title) LIKE LOWER(CONCAT('%', :input, '%')) " +
+                        "OR LOWER(t.description) LIKE LOWER(CONCAT('%', :input, '%')))"
+        )
+})
 @Table(name = "task")
 @AllArgsConstructor
 @NoArgsConstructor

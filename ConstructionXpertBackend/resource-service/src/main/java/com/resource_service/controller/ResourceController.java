@@ -20,10 +20,10 @@ public class ResourceController {
 
     @GetMapping("/get-all-resources")
     public ResponseEntity<?> getAllResources(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size,
-            @RequestParam(defaultValue = "title") String sortField,
-            @RequestParam(defaultValue = "asc") String sortDirection) {
+            @RequestParam(defaultValue = "0", name = "page") int page,
+            @RequestParam(defaultValue = "10", name = "size") int size,
+            @RequestParam(defaultValue = "title", name = "sortField") String sortField,
+            @RequestParam(defaultValue = "asc", name = "sortDirection") String sortDirection) {
         try {
             var resources = resourceService.getAllResources(page, size, sortField, sortDirection);
             return ResponseEntity.ok(resources);
@@ -78,14 +78,14 @@ public class ResourceController {
 
     @GetMapping("/dynamic-filter")
     public ResponseEntity<?> dynamicFilterResources(
-            @RequestParam(required = false) String provider,
-            @RequestParam(required = false) Type type,
-            @RequestParam(required = false) Boolean availability,
-            @RequestParam(required = false) Date acquisitionDate,
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size,
-            @RequestParam(defaultValue = "title") String sortField,
-            @RequestParam(defaultValue = "asc") String sortDirection) {
+            @RequestParam(required = false, name = "provider") String provider,
+            @RequestParam(required = false, name = "type") Type type,
+            @RequestParam(required = false, name = "availability") Boolean availability,
+            @RequestParam(required = false, name = "acquisitionDate") Date acquisitionDate,
+            @RequestParam(defaultValue = "0", name = "page") int page,
+            @RequestParam(defaultValue = "10", name = "size") int size,
+            @RequestParam(defaultValue = "title", name = "sortField") String sortField,
+            @RequestParam(defaultValue = "asc", name = "sortDirection") String sortDirection) {
         try {
             var resources = resourceService.dynamicFilterResources(provider, type, availability, acquisitionDate, page, size, sortField, sortDirection);
             return ResponseEntity.ok(resources);
@@ -96,11 +96,11 @@ public class ResourceController {
 
     @GetMapping("/dynamic-search")
     public ResponseEntity<?> dynamicSearchResources(
-            @RequestParam String input,
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size,
-            @RequestParam(defaultValue = "title") String sortField,
-            @RequestParam(defaultValue = "asc") String sortDirection) {
+            @RequestParam(name = "input") String input,
+            @RequestParam(defaultValue = "0", name = "page") int page,
+            @RequestParam(defaultValue = "10", name = "size") int size,
+            @RequestParam(defaultValue = "title", name = "sortField") String sortField,
+            @RequestParam(defaultValue = "asc", name = "sortDirection") String sortDirection) {
         try {
             var resources = resourceService.dynamicSearchResources(input, page, size, sortField, sortDirection);
             return ResponseEntity.ok(resources);
@@ -110,7 +110,7 @@ public class ResourceController {
     }
 
     @GetMapping("/autocomplete-search")
-    public ResponseEntity<?> autocompleteSearchInput(@RequestParam String input) {
+    public ResponseEntity<?> autocompleteSearchInput(@RequestParam("input") String input) {
         try {
             var suggestions = resourceService.autocompleteSearchInput(input);
             return ResponseEntity.ok(suggestions);

@@ -116,6 +116,6 @@ public class ResourceService {
         if (input == null || input.isEmpty()) {
             return List.of();
         }
-        return resourceRepository.findAutocompleteSuggestions("%" + input.toLowerCase() + "%");
+        return resourceRepository.findAutocompleteSuggestions(input);
     }
 }

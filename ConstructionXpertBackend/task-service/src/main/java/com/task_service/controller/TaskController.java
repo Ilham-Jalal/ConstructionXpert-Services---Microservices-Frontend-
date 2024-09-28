@@ -21,10 +21,10 @@ public class TaskController {
 
     @GetMapping("/get-all-tasks")
     public ResponseEntity<?> getAllTasks(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size,
-            @RequestParam(defaultValue = "title") String sortField,
-            @RequestParam(defaultValue = "asc") String sortDirection) {
+            @RequestParam(defaultValue = "0", name = "page") int page,
+            @RequestParam(defaultValue = "10", name = "size") int size,
+            @RequestParam(defaultValue = "title", name = "sortField") String sortField,
+            @RequestParam(defaultValue = "asc", name = "sortDirection") String sortDirection) {
         try {
             var tasks = taskService.getAllTasks(page, size, sortField, sortDirection);
             return ResponseEntity.ok(tasks);

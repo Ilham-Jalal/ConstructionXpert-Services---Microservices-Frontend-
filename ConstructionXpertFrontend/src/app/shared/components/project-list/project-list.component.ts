@@ -1,71 +1,58 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
+import { ProjectService } from '../../../core/services/project.service';
 
 @Component({
   selector: 'app-project-list',
   templateUrl: './project-list.component.html',
   styleUrls: ['./project-list.component.css']
 })
-export class ProjectListComponent {
+export class ProjectListComponent implements OnInit {
+  projects: any[] = [];
+  totalProjects: number = 0;
+  page: number = 0;
+  size: number = 10;
+  sortField: string = 'name'; 
+  sortDirection: string = 'asc';
 
-  total_project = 5;
-  projects = [
-    {
-      id: 1,
-      name: 'Project Alpha',
-      budget: 10000,
-      progress: 30,
-      status: 'IN_PROGRESS',
-      areaSize: 150,
-      geolocation: 'New York, USA',
-      room: 4,
-      picture: 'path_to_image_alpha'
-    },
-    {
-      id: 2,
-      name: 'Project Beta',
-      budget: 8000,
-      progress: 70,
-      status: 'TODO',
-      areaSize: 120,
-      geolocation: 'London, UK',
-      room: 3,
-      picture: 'path_to_image_beta'
-    },
-    {
-      id: 2,
-      name: 'Project Beta',
-      budget: 8000,
-      progress: 70,
-      status: 'TODO',
-      areaSize: 120,
-      geolocation: 'London, UK',
-      room: 3,
-      picture: 'path_to_image_beta'
-    },
-    {
-      id: 2,
-      name: 'Project Beta',
-      budget: 8000,
-      progress: 70,
-      status: 'TODO',
-      areaSize: 120,
-      geolocation: 'London, UK',
-      room: 3,
-      picture: 'path_to_image_beta'
-    }
-  ];
+  constructor(private projectService: ProjectService) {}
 
-  getProgressColor(status: string): string {
-    switch (status) {
-      case 'TODO':
-        return 'warn';  // Rouge pour TODO
-      case 'IN_PROGRESS':
-        return 'primary';  // Vert pour IN_PROGRESS
-      case 'COMPLETED':
-        return 'accent';  // Orange pour COMPLETED
-      default:
-        return 'primary';
-    }
+  ngOnInit(): void {
+    this.getProjects();
   }
 
+  getProjects(): void {
+    this.projectService.getAllProjects(this.page, this.size, this.sortField, this.sortDirection).subscribe(
+      (response: any) => {
+        this.projects = response.content;
+        this.totalProjects = response.totalElements;
+      },
+      (error) => {
+        console.error('Error fetching projects', error);
+      }
+    );
+  }
+
+  onPageChange(event: PageEvent): void {
+    this.page = event.pageIndex;
+    this.size = event.pageSize;
+    this.getProjects();
+  }
+
+  toggleSortField(field: string): void {
+    if (this.sortField === field) {
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortField = field;
+      this.sortDirection = 'asc';
+    }
+    this.getProjects();
+  }
+
+  getSortIndicator(field: string): string {
+    if (this.sortField === field) {
+      return this.sortDirection === 'asc' ? '↑' : '↓';
+    }
+    return '';
+  }
 }

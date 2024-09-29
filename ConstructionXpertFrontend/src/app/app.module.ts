@@ -29,6 +29,7 @@ import { ProjectLayoutComponent } from './shared/layouts/project-layout/project-
 import { ProjectListComponent } from './shared/components/project-list/project-list.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { MatMenuModule } from '@angular/material/menu';
     ProjectListComponent,
   ],
   imports: [
+    MatPaginatorModule,
     MatMenuModule,
     MatProgressBarModule,
     FullCalendarModule,

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {User} from "../models/User";
 import { environment } from '../../../environments/environment';
@@ -12,8 +12,14 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  getAllUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.apiUrl}/get-all-users`);
+  getAllUsers(page: number, size: number, sortField: string, sortDirection: string): Observable<any> {
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('size', size.toString())
+      .set('sortField', sortField)
+      .set('sortDirection', sortDirection);
+
+    return this.http.get(`${this.apiUrl}/get-all-users`, { params });
   }
 
   getUserById(id: string): Observable<User> {

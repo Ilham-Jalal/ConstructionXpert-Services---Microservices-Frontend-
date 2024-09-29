@@ -20,6 +20,7 @@
 }
 
 .cardBox .card {
+    width: 30%;
     border: none;
     background: var(--secondary-color);
     padding: 30px;

@@ -3,8 +3,10 @@ package com.project_service.controller;
 import com.project_service.dto.ProjectDto;
 import com.project_service.enums.Status;
 import com.project_service.exception.ProjectNotFoundException;
+import com.project_service.model.Project;
 import com.project_service.service.ProjectService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +27,7 @@ public class ProjectController {
             @RequestParam(defaultValue = "name", name = "sortField") String sortField,
             @RequestParam(defaultValue = "asc", name = "sortDirection") String sortDirection) {
         try {
-            var projects = projectService.getAllProjects(page, size, sortField, sortDirection);
+            Page<Project> projects = projectService.getAllProjects(page, size, sortField, sortDirection);
             return ResponseEntity.ok(projects);
         } catch (ProjectNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());

@@ -1,7 +1,11 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { ChartData, ChartType, Chart, registerables } from 'chart.js';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import { CalendarOptions, EventContentArg } from '@fullcalendar/core/index.js';
+import { CalendarOptions, EventContentArg } from '@fullcalendar/core';
+import { ProjectService } from '../../../../core/services/project.service';
+import { UserService } from '../../../../core/services/user.service';
+import { TaskService } from '../../../../core/services/task.service';
+import { ResourceService } from '../../../../core/services/resource.service';
 
 Chart.register(...registerables);
 
@@ -10,19 +14,26 @@ Chart.register(...registerables);
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css'],
   encapsulation: ViewEncapsulation.None,
-
 })
-export class MainComponent {
-  total_project = 10;
-  total_resource = 20;
-  total_employee = 5;
-  total_budget = 100;
+export class MainComponent implements OnInit {
+
+  projectsPages: any;
+  projects: any[] = [];
+  page: number = 0;
+  size: number = 10;
+  sortField: string = 'name';
+  sortDirection: string = 'asc';
+
+  totalProjects: number = 0;
+  totalResources: number = 0;
+  totalUsers: number = 0;
+  totalTasks: number = 0;
 
   public doughnutChartData: ChartData<'doughnut'> = {
-    labels: ['Projects', 'Resources', 'Employees'],
+    labels: ['Projects', 'Resources', 'Tasks'],
     datasets: [
       {
-        data: [this.total_project, this.total_resource, this.total_employee],
+        data: [],
         backgroundColor: ['#FF914C', '#FFBD59', '#D9D9D9']
       }
     ]
@@ -30,47 +41,100 @@ export class MainComponent {
   public doughnutChartType: ChartType = 'doughnut';
 
   public barChartData: ChartData<'bar'> = {
-    labels: ['Projects', 'Resources', 'Employees'],
+    labels: [],
     datasets: [
       {
         label: 'Budget (in K)',
-        data: [this.total_budget, 50, 30],
-        backgroundColor: ['#FF914C', '#FFBD59', '#D9D9D9']
+        data: [],
+        backgroundColor: []
       }
     ]
   };
   public barChartType: ChartType = 'bar';
 
-  projects = [
-    {
-      name: 'Project Alpha',
-      dateStart: '2024-09-20',
-      dateEnd: '2024-09-25',
-      progress: 50,
-      picture: 'path_to_project_alpha_image',
-      userPicture: 'path_to_user_image'
-    },
-    {
-      name: 'Project Beta',
-      dateStart: '2024-09-26',
-      dateEnd: '2024-10-01',
-      progress: 75,
-      picture: 'path_to_project_beta_image',
-      userPicture: 'path_to_user_image'
-    },
-  ];
+  calendarOptions: CalendarOptions = {
+    initialView: 'dayGridMonth',
+    plugins: [dayGridPlugin],
+    events: [],
+    eventContent: this.eventContent.bind(this),
+  };
 
-  events: any[] = [];
-
-  calendarOptions!: CalendarOptions;
+  constructor(
+    private projectService: ProjectService,
+    private userService: UserService,
+    private taskService: TaskService,
+    private resourceService: ResourceService
+  ) {}
 
   ngOnInit() {
-    this.initializeEvents();
-    this.initializeCalendarOptions();
+    this.getProjects();
+    this.getTotalUsers();
+    this.getTotalTasks();
+    this.getTotalResources();
   }
 
-  initializeEvents() {
-    this.events = this.projects.map(project => ({
+  getProjects(): void {
+    this.projectService.getAllProjects(this.page, this.size, this.sortField, this.sortDirection).subscribe(
+      (response: any) => {
+        this.projectsPages = response;
+        this.projects = response.content;
+        this.totalProjects = response.totalElements;
+        this.updateCharts();
+        this.updateCalendarEvents();
+      },
+      (error) => {
+        console.error('Error fetching projects', error);
+      }
+    );
+  }
+
+  getTotalUsers(): void {
+    this.userService.getAllUsers(this.page, this.size, this.sortField, this.sortDirection).subscribe(
+      (response: any) => {
+        this.totalUsers = response.totalElements;
+        this.updateCharts();
+      },
+      (error) => {
+        console.error('Error fetching users', error);
+      }
+    );
+  }
+
+  getTotalTasks(): void {
+    this.taskService.getAllTasks(this.page, this.size, "title", this.sortDirection).subscribe(
+      (response: any) => {
+        this.totalTasks = response.totalElements;
+        this.updateCharts();
+      },
+      (error) => {
+        console.error('Error fetching tasks', error);
+      }
+    );
+  }
+
+  getTotalResources(): void {
+    this.resourceService.getAllResources(this.page, this.size, "title", this.sortDirection).subscribe(
+      (response: any) => {
+        this.totalResources = response.totalElements;
+        this.updateCharts();
+      },
+      (error) => {
+        console.error('Error fetching resources', error);
+      }
+    );
+  }
+
+  generateRandomColors(count: number): string[] {
+    const colors = [];
+    for (let i = 0; i < count; i++) {
+      const color = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+      colors.push(color);
+    }
+    return colors;
+  }
+
+  updateCalendarEvents() {
+    const events = this.projects.map(project => ({
       title: project.name,
       start: project.dateStart,
       end: project.dateEnd,
@@ -79,14 +143,10 @@ export class MainComponent {
         progress: project.progress
       }
     }));
-  }
 
-  initializeCalendarOptions() {
     this.calendarOptions = {
-      initialView: 'dayGridMonth',
-      plugins: [dayGridPlugin],
-      events: this.events,
-      eventContent: this.eventContent.bind(this),
+      ...this.calendarOptions,
+      events: events
     };
   }
 
@@ -128,5 +188,25 @@ export class MainComponent {
     }
 
     return { domNodes: [card] };
+  }
+
+  updateCharts() {
+    this.doughnutChartData = {
+      ...this.doughnutChartData,
+      datasets: [{
+        data: [this.totalProjects, this.totalResources, this.totalTasks],
+        backgroundColor: ['#FF914C', '#FFBD59', '#D9D9D9']
+      }]
+    };
+
+    this.barChartData = {
+      ...this.barChartData,
+      labels: this.projects.map(project => project.name),
+      datasets: [{
+        label: 'Budget (in K)',
+        data: this.projects.map(project => project.budget),
+        backgroundColor: this.generateRandomColors(this.projects.length)
+      }]
+    };
   }
 }

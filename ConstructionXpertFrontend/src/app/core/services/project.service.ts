@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ProjectDto } from '../dtos/ProjectDto';
 import { environment } from '../../../environments/environment';
@@ -12,8 +12,14 @@ export class ProjectService {
 
   constructor(private http: HttpClient) {}
 
-  getAllProjects(): Observable<ProjectDto[]> {
-    return this.http.get<ProjectDto[]>(`${this.apiUrl}/get-all-projects`);
+  getAllProjects(page: number, size: number, sortField: string, sortDirection: string): Observable<any> {
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('size', size.toString())
+      .set('sortField', sortField)
+      .set('sortDirection', sortDirection);
+
+    return this.http.get(`${this.apiUrl}/get-all-projects`, { params });
   }
 
   getProjectById(id: string): Observable<ProjectDto> {

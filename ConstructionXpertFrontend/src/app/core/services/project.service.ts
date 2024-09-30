@@ -20,6 +20,7 @@ export class ProjectService {
       .set('sortDirection', sortDirection);
 
     return this.http.get(`${this.apiUrl}/get-all-projects`, { params });
+<<<<<<< HEAD
   }
 
   dynamicFilterProjects(
@@ -51,6 +52,8 @@ export class ProjectService {
 
   autocompleteSearch(input: string): Observable<string[]> {
     return this.http.get<string[]>(`${this.apiUrl}/autocomplete-search?input=${input}`);
+=======
+>>>>>>> d54fe63b31b0357ac39ad3b867dbe4d8e068fc09
   }
 
   getProjectById(id: string): Observable<ProjectDto> {

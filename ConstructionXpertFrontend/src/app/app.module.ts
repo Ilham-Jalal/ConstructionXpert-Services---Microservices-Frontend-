@@ -13,7 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { PasswordStrengthPipe } from './shared/pipes/password-strength.pipe';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './core/ngrx/app.state';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,6 +30,8 @@ import { ProjectListComponent } from './shared/components/project-list/project-l
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     ProjectListComponent,
   ],
   imports: [
+    MatAutocompleteModule,
     MatPaginatorModule,
     MatMenuModule,
     MatProgressBarModule,
@@ -61,6 +64,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     StoreModule.forRoot(reducers, { metaReducers } )
   ],

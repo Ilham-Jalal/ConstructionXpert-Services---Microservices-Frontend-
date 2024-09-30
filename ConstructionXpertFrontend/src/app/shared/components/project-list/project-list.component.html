@@ -4,19 +4,53 @@
       <h6>Projects</h6>
       <span>Number of projects: {{ totalProjects }}</span>
     </div>
-    <div class="main-actions d-flex flex-row justify-content-around">
-      <div class="filter">
-        <mat-icon>filter_list</mat-icon>
-        <span>Filter</span>
-      </div>
-      <div class="featured">
-        <span>Featured</span>
-        <mat-icon>expand_more</mat-icon>
-      </div>
-      <div class="sort">
-        <mat-icon>apps</mat-icon>
-        <mat-icon>view_list</mat-icon>
-      </div>
+    <div class="filters-section">
+      <label>
+        Geolocation:
+        <input type="text" [(ngModel)]="geolocation" placeholder="Enter geolocation" (change)="applyFilters()">
+      </label>
+    
+      <label>
+        Status:
+        <input type="text" [(ngModel)]="status" placeholder="Enter status" (change)="applyFilters()">
+      </label>
+    
+      <label>
+        Min Budget:
+        <input type="number" [(ngModel)]="minBudget" placeholder="Min Budget" (change)="applyFilters()">
+      </label>
+    
+      <label>
+        Max Budget:
+        <input type="number" [(ngModel)]="maxBudget" placeholder="Max Budget" (change)="applyFilters()">
+      </label>
+    
+      <label>
+        Date Start:
+        <input type="date" [(ngModel)]="dateStart" (change)="applyFilters()">
+      </label>
+    
+      <label>
+        Date End:
+        <input type="date" [(ngModel)]="dateEnd" (change)="applyFilters()">
+      </label>
+    
+      <label>
+        Sort by:
+        <select [(ngModel)]="sortField" (change)="onSortChange(sortField, sortDirection)">
+          <option value="name">Name</option>
+          <option value="description">Description</option>
+          <option value="budget">Budget</option>
+        </select>
+    
+        <select [(ngModel)]="sortDirection" (change)="onSortChange(sortField, sortDirection)">
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+      </label>
+
+      <button (click)="applyFilters()">Apply Filters</button>
+      <button (click)="resetFilters()">Reset Filters</button>
     </div>
   </div>
 

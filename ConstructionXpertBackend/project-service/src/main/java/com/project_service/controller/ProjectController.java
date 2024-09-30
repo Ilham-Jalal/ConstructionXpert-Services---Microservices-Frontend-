@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/project")
@@ -116,7 +117,7 @@ public class ProjectController {
     @GetMapping("/autocomplete-search")
     public ResponseEntity<?> autocompleteSearchInput(@RequestParam("input") String input) {
         try {
-            var suggestions = projectService.autocompleteSearchInput(input);
+            List<String> suggestions = projectService.autocompleteSearchInput(input);
             return ResponseEntity.ok(suggestions);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());

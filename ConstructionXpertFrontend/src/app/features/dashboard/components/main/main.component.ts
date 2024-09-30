@@ -139,7 +139,7 @@ export class MainComponent implements OnInit {
       start: project.dateStart,
       end: project.dateEnd,
       extendedProps: {
-        contributors: [project.picture, project.userPicture],
+        contributors: [project.picture, "https://i.pinimg.com/originals/b7/df/a8/b7dfa8edeb817bcb1a13467bff00869b.jpg"],
         progress: project.progress
       }
     }));

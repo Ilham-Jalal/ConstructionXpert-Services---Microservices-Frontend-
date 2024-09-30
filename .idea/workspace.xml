@@ -4,6 +4,221 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="26c302ab-f432-4d2b-a7da-6b8cb19058bf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/constructxpert-services/config-server/src/main/resources/configurations/task-service.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/main/java/com/project_service/controller/ProjectController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/main/java/com/project_service/repository/ProjectRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/main/java/com/project_service/service/ProjectService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/test/java/com/project_service/ProjectControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/src/main/java/com/resource_service/controller/ResourceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/src/main/java/com/resource_service/repository/ResourceRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/src/main/java/com/resource_service/service/ResourceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/src/test/java/com/resource_service/ResourceControllerTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/java/com/task_service/controller/TaskController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/service/AdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/Jenkinsfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/api-gateway-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/api-gateway-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/api-gateway-service/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/api-gateway-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/api-gateway-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/api-gateway-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/api-gateway-service/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/api-gateway-service/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/api-gateway-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/api-gateway-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/api-gateway-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/api-gateway-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/api-gateway-service/src/main/java/com/api_gateway_service/ApiGatewayServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/api-gateway-service/src/main/java/com/api_gateway_service/ApiGatewayServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/api-gateway-service/src/main/java/com/api_gateway_service/config/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/api-gateway-service/src/main/java/com/api_gateway_service/config/AuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/api-gateway-service/src/main/java/com/api_gateway_service/config/AuthorizationGatewayFilterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/api-gateway-service/src/main/java/com/api_gateway_service/config/AuthorizationGatewayFilterFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/api-gateway-service/src/main/java/com/api_gateway_service/config/CustomReactiveLoadBalancerClientFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/api-gateway-service/src/main/java/com/api_gateway_service/config/CustomReactiveLoadBalancerClientFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/api-gateway-service/src/main/java/com/api_gateway_service/config/GatewayConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/api-gateway-service/src/main/java/com/api_gateway_service/config/GatewayConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/api-gateway-service/src/main/java/com/api_gateway_service/config/RouteValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/api-gateway-service/src/main/java/com/api_gateway_service/config/RouteValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/api-gateway-service/src/main/java/com/api_gateway_service/enums/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/api-gateway-service/src/main/java/com/api_gateway_service/enums/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/api-gateway-service/src/main/java/com/api_gateway_service/exception/CustomLoadBalancerException.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/api-gateway-service/src/main/java/com/api_gateway_service/exception/CustomLoadBalancerException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/api-gateway-service/src/main/java/com/api_gateway_service/service/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/api-gateway-service/src/main/java/com/api_gateway_service/service/JwtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/api-gateway-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/api-gateway-service/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/api-gateway-service/src/test/java/com/api_gateway_service/ApiGatewayServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/config-server/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/config-server/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/config-server/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/config-server/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/config-server/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/config-server/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/config-server/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/config-server/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/config-server/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/config-server/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/config-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/config-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/config-server/src/main/java/com/config_server/ConfigServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/config-server/src/main/java/com/config_server/ConfigServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/config-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/config-server/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/config-server/src/main/resources/configurations/api-gateway-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/config-server/src/main/resources/configurations/api-gateway-service.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/config-server/src/main/resources/configurations/eureka-server.yml" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/config-server/src/main/resources/configurations/eureka-server.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/config-server/src/main/resources/configurations/project-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/config-server/src/main/resources/configurations/project-service.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/config-server/src/main/resources/configurations/resource-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/config-server/src/main/resources/configurations/resource-service.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/config-server/src/main/resources/configurations/task-service.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/config-server/src/main/resources/configurations/user-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/config-server/src/main/resources/configurations/user-service.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/config-server/src/test/java/com/config_server/ConfigServerApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/eureka-server/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/eureka-server/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/eureka-server/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/eureka-server/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/eureka-server/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/eureka-server/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/eureka-server/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/eureka-server/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/eureka-server/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/eureka-server/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/eureka-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/eureka-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/eureka-server/src/main/java/com/eureka_server/EurekaServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/eureka-server/src/main/java/com/eureka_server/EurekaServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/eureka-server/src/main/java/com/eureka_server/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/eureka-server/src/main/java/com/eureka_server/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/eureka-server/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/eureka-server/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/eureka-server/src/test/java/com/eureka_server/EurekaServerApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/java/com/project_service/ProjectServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/main/java/com/project_service/ProjectServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/java/com/project_service/client/FeignRequestInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/main/java/com/project_service/client/FeignRequestInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/java/com/project_service/client/RequestContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/main/java/com/project_service/client/RequestContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/java/com/project_service/client/TaskServiceCircuitBreaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/main/java/com/project_service/client/TaskServiceCircuitBreaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/java/com/project_service/client/UserClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/main/java/com/project_service/client/UserClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/java/com/project_service/client/UserServiceCircuitBreaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/main/java/com/project_service/client/UserServiceCircuitBreaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/java/com/project_service/config/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/main/java/com/project_service/config/ApplicationConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/java/com/project_service/config/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/main/java/com/project_service/config/AuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/java/com/project_service/config/FeignClientConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/main/java/com/project_service/config/FeignClientConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/java/com/project_service/config/OpenApiConfigs.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/main/java/com/project_service/config/OpenApiConfigs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/java/com/project_service/config/RestTemplateConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/main/java/com/project_service/config/RestTemplateConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/java/com/project_service/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/main/java/com/project_service/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/java/com/project_service/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/main/java/com/project_service/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/java/com/project_service/controller/ProjectController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/java/com/project_service/dto/ProjectDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/main/java/com/project_service/dto/ProjectDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/java/com/project_service/enums/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/main/java/com/project_service/enums/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/java/com/project_service/enums/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/main/java/com/project_service/enums/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/java/com/project_service/exception/ProjectNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/main/java/com/project_service/exception/ProjectNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/java/com/project_service/mapper/ProjectMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/main/java/com/project_service/mapper/ProjectMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/java/com/project_service/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/main/java/com/project_service/model/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/java/com/project_service/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/main/java/com/project_service/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/java/com/project_service/repository/ProjectRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/java/com/project_service/service/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/main/java/com/project_service/service/JwtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/java/com/project_service/service/ProjectService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/main/resources/db/migration/V1__Create_Table_Project.sql" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/project-service/src/main/resources/db/migration/V1__Create_Table_Project.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/project-service/src/test/java/com/project_service/ProjectControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/main/java/com/resource_service/ResourceServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/src/main/java/com/resource_service/ResourceServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/main/java/com/resource_service/client/FeignRequestInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/src/main/java/com/resource_service/client/FeignRequestInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/main/java/com/resource_service/client/RequestContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/src/main/java/com/resource_service/client/RequestContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/main/java/com/resource_service/client/UserClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/src/main/java/com/resource_service/client/UserClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/main/java/com/resource_service/client/UserServiceCircuitBreaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/src/main/java/com/resource_service/client/UserServiceCircuitBreaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/main/java/com/resource_service/config/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/src/main/java/com/resource_service/config/ApplicationConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/main/java/com/resource_service/config/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/src/main/java/com/resource_service/config/AuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/main/java/com/resource_service/config/FeignClientConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/src/main/java/com/resource_service/config/FeignClientConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/main/java/com/resource_service/config/OpenApiConfigs.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/src/main/java/com/resource_service/config/OpenApiConfigs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/main/java/com/resource_service/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/src/main/java/com/resource_service/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/main/java/com/resource_service/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/src/main/java/com/resource_service/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/main/java/com/resource_service/controller/ResourceController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/main/java/com/resource_service/dto/ResourceDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/src/main/java/com/resource_service/dto/ResourceDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/main/java/com/resource_service/enums/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/src/main/java/com/resource_service/enums/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/main/java/com/resource_service/enums/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/src/main/java/com/resource_service/enums/Type.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/main/java/com/resource_service/exception/ResourceNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/src/main/java/com/resource_service/exception/ResourceNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/main/java/com/resource_service/mapper/ResourceMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/src/main/java/com/resource_service/mapper/ResourceMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/main/java/com/resource_service/model/Resource.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/src/main/java/com/resource_service/model/Resource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/main/java/com/resource_service/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/src/main/java/com/resource_service/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/main/java/com/resource_service/repository/ResourceRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/main/java/com/resource_service/service/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/src/main/java/com/resource_service/service/JwtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/main/java/com/resource_service/service/ResourceService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/main/resources/db/migration/V1__Create_Table_Resource.sql" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/resource-service/src/main/resources/db/migration/V1__Create_Table_Resource.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/src/test/java/com/resource_service/ResourceControllerTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java/com/task_service/TaskServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/java/com/task_service/TaskServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java/com/task_service/client/FeignRequestInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/java/com/task_service/client/FeignRequestInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java/com/task_service/client/ProjectServiceCircuitBreaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/java/com/task_service/client/ProjectServiceCircuitBreaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java/com/task_service/client/RequestContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/java/com/task_service/client/RequestContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java/com/task_service/client/ResourceServiceCircuitBreaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/java/com/task_service/client/ResourceServiceCircuitBreaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java/com/task_service/client/UserClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/java/com/task_service/client/UserClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java/com/task_service/client/UserServiceCircuitBreaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/java/com/task_service/client/UserServiceCircuitBreaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java/com/task_service/config/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/java/com/task_service/config/ApplicationConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java/com/task_service/config/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/java/com/task_service/config/AuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java/com/task_service/config/FeignClientConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/java/com/task_service/config/FeignClientConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java/com/task_service/config/OpenApiConfigs.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/java/com/task_service/config/OpenApiConfigs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java/com/task_service/config/RestTemplateConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/java/com/task_service/config/RestTemplateConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java/com/task_service/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/java/com/task_service/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java/com/task_service/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/java/com/task_service/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java/com/task_service/controller/TaskController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java/com/task_service/dto/TaskDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/java/com/task_service/dto/TaskDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java/com/task_service/enums/Priority.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/java/com/task_service/enums/Priority.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java/com/task_service/enums/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/java/com/task_service/enums/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java/com/task_service/enums/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/java/com/task_service/enums/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java/com/task_service/exception/TaskNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/java/com/task_service/exception/TaskNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java/com/task_service/mapper/TaskMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/java/com/task_service/mapper/TaskMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java/com/task_service/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/java/com/task_service/model/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java/com/task_service/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/java/com/task_service/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java/com/task_service/repository/TaskRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/java/com/task_service/repository/TaskRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java/com/task_service/service/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/java/com/task_service/service/JwtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/java/com/task_service/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/java/com/task_service/service/TaskService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/resources/db/migration/V1__Create_Task_Table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/resources/db/migration/V1__Create_Task_Table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/main/resources/db/migration/V2__Update_Task_Table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/main/resources/db/migration/V2__Update_Task_Table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/task-service/src/test/java/com/task_service/TaskControllerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/task-service/src/test/java/com/task_service/TaskControllerTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/UserServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/UserServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/config/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/config/ApplicationConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/config/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/config/AuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/config/OpenApiConfigs.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/config/OpenApiConfigs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/controller/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/controller/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/controller/SupervisorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/controller/SupervisorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/dto/AdminDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/dto/AdminDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/dto/AuthenticationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/dto/AuthenticationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/dto/AuthenticationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/dto/AuthenticationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/dto/ClientDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/dto/ClientDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/dto/SupervisorDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/dto/SupervisorDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/enums/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/enums/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/exception/AdminNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/exception/AdminNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/exception/ClientNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/exception/ClientNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/exception/LoginException.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/exception/LoginException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/exception/RegistrationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/exception/RegistrationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/exception/SupervisorNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/exception/SupervisorNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/exception/UserNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/exception/UserNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/model/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/model/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/model/Supervisor.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/model/Supervisor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/repository/AdminRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/repository/AdminRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/repository/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/repository/ClientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/repository/SupervisorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/repository/SupervisorRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/service/AdminService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/service/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/service/AuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/service/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/service/ClientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/service/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/service/JwtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/service/SupervisorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/service/SupervisorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/java/com/user_service/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/resources/db/migration/V1__Create_Tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/main/resources/db/migration/V1__Create_Tables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/test/java/com/user_management_service/AuthenticationControllerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/constructxpert-services/user-service/src/test/java/com/user_management_service/AuthenticationControllerTests.java" afterDir="false" />
+=======
     <list default="true" id="11a5d623-8859-4a41-bd88-7504b2fd3393" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
@@ -61,6 +276,7 @@
       <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/java/com/user_service/service/AdminService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/resources/bootstrap.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/resources/db/migration/V1__Create_Tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ConstructionXpertBackend/user-service/src/main/resources/db/migration/V1__Create_Tables.sql" afterDir="false" />
+>>>>>>> d54fe63b31b0357ac39ad3b867dbe4d8e068fc09
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,22 +286,25 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="KubernetesApiProvider">{
-  &quot;isMigrated&quot;: true
-}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
-  <component name="ProjectId" id="2mWN1bUbqDupYlYIdkEjyVTJl5B" />
+  <component name="ProjectId" id="2mk1F97SLFIhMtfrzAmicVYvLEt" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+<<<<<<< HEAD
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+=======
     &quot;Docker.ConstructionXpertBackend.api-gateway-service: Compose Deployment.executor&quot;: &quot;Run&quot;,
     &quot;Docker.ConstructionXpertBackend.resource-service: Compose Deployment.executor&quot;: &quot;Run&quot;,
     &quot;Docker.ConstructionXpertBackend: Compose Deployment.executor&quot;: &quot;Run&quot;,
@@ -102,11 +321,18 @@
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21 (2)&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Desktop/ENAA-CHALLENGES-WORKSHOP-PROJECT/BRIEFS-ENAA-SIMPLONE/BRIEF-CONSTRUCTXPERT-FRONTEND/ConstructionXpertBackend/user-service&quot;,
+>>>>>>> d54fe63b31b0357ac39ad3b867dbe4d8e068fc09
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+<<<<<<< HEAD
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+=======
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -120,6 +346,7 @@
       <recent name="C:\Users\user\Desktop\ENAA-CHALLENGES-WORKSHOP-PROJECT\BRIEFS-ENAA-SIMPLONE\BRIEF-CONSTRUCTXPERT-FRONTEND\ConstructionXpertBackend" />
     </key>
   </component>
+>>>>>>> d54fe63b31b0357ac39ad3b867dbe4d8e068fc09
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -129,7 +356,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Docker.ConstructionXpertBackend.resource-service: Compose Deployment">
+  <component name="RunManager" selected="Spring Boot.ApiGatewayServiceApplication">
     <configuration name="ApiGatewayServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="api-gateway-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.api_gateway_service.ApiGatewayServiceApplication" />
@@ -179,66 +406,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ConstructionXpertBackend: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="sourceFilePath" value="ConstructionXpertBackend/docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="ConstructionXpertBackend.api-gateway-service: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="api-gateway-service" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="ConstructionXpertBackend/docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="ConstructionXpertBackend.resource-service: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="resource-service" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="ConstructionXpertBackend/docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml">
-        <settings />
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Docker.ConstructionXpertBackend.resource-service: Compose Deployment" />
-        <item itemvalue="Docker.ConstructionXpertBackend.api-gateway-service: Compose Deployment" />
-        <item itemvalue="Docker.ConstructionXpertBackend: Compose Deployment" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="11a5d623-8859-4a41-bd88-7504b2fd3393" name="Changes" comment="" />
-      <created>1727188158299</created>
+      <changelist id="26c302ab-f432-4d2b-a7da-6b8cb19058bf" name="Changes" comment="" />
+      <created>1727605653576</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+<<<<<<< HEAD
+      <updated>1727605653576</updated>
+      <workItem from="1727605654930" duration="679000" />
+      <workItem from="1727610474455" duration="781000" />
+=======
       <updated>1727188158299</updated>
       <workItem from="1727188159456" duration="434000" />
       <workItem from="1727188871725" duration="3538000" />
       <workItem from="1727536403126" duration="702000" />
       <workItem from="1727537131737" duration="272000" />
+>>>>>>> d54fe63b31b0357ac39ad3b867dbe4d8e068fc09
     </task>
     <servers />
   </component>

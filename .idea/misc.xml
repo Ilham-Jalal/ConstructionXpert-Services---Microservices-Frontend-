@@ -4,6 +4,9 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/constructxpert-services/pom.xml" />
+=======
         <option value="$PROJECT_DIR$/ConstructionXpertBackend/pom.xml" />
         <option value="$PROJECT_DIR$/ConstructionXpertBackend/eureka-server/pom.xml" />
         <option value="$PROJECT_DIR$/ConstructionXpertBackend/config-server/pom.xml" />
@@ -12,6 +15,7 @@
         <option value="$PROJECT_DIR$/ConstructionXpertBackend/resource-service/pom.xml" />
         <option value="$PROJECT_DIR$/ConstructionXpertBackend/task-service/pom.xml" />
         <option value="$PROJECT_DIR$/ConstructionXpertBackend/user-service/pom.xml" />
+>>>>>>> d54fe63b31b0357ac39ad3b867dbe4d8e068fc09
       </list>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />

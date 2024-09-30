@@ -13,7 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { PasswordStrengthPipe } from './shared/pipes/password-strength.pipe';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './core/ngrx/app.state';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,6 +29,9 @@ import { ProjectLayoutComponent } from './shared/layouts/project-layout/project-
 import { ProjectListComponent } from './shared/components/project-list/project-list.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+
 
 @NgModule({
   declarations: [
@@ -43,6 +46,8 @@ import { MatMenuModule } from '@angular/material/menu';
     ProjectListComponent,
   ],
   imports: [
+    MatAutocompleteModule,
+    MatPaginatorModule,
     MatMenuModule,
     MatProgressBarModule,
     FullCalendarModule,
@@ -59,6 +64,7 @@ import { MatMenuModule } from '@angular/material/menu';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     StoreModule.forRoot(reducers, { metaReducers } )
   ],

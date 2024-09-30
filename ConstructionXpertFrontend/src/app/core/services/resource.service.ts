@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ResourceDto } from '../dtos/ResourceDto';
 import { environment } from '../../../environments/environment';
@@ -8,7 +8,7 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root'
 })
 export class ResourceService {
-  private apiUrl = `${environment.apiResource}api/resources`;
+  private apiUrl = `${environment.apiResource}api/resource`;
 
   constructor(private http: HttpClient) {}
 
@@ -20,9 +20,14 @@ export class ResourceService {
     return this.http.get<ResourceDto>(`${this.apiUrl}/get-resource-by-id/${id}`);
   }
 
-  
-  getAllResources(): Observable<ResourceDto[]> {
-    return this.http.get<ResourceDto[]>(`${this.apiUrl}/get-all-resources`);
+  getAllResources(page: number, size: number, sortField: string, sortDirection: string): Observable<any> {
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('size', size.toString())
+      .set('sortField', sortField)
+      .set('sortDirection', sortDirection);
+
+    return this.http.get(`${this.apiUrl}/get-all-resources`, { params });
   }
 
   updateResource(id: number, resourceDto: ResourceDto): Observable<ResourceDto> {

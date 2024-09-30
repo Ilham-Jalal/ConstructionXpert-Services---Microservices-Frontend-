@@ -3,13 +3,18 @@
         <div class="menu d-flex justify-content-center align-content-center align-items-center">
             <mat-icon class="mat-icon">menu_alt_right</mat-icon>
         </div>
-  
-          <div class="search">
+
+        <div class="search">
             <label>
-                <input type="text" placeholder="Search here">
+                <input type="text" [formControl]="searchControl" placeholder="Search here" matInput [matAutocomplete]="auto">
                 <mat-icon>search</mat-icon>
             </label>
-        </div>       
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{ option }}
+                </mat-option>
+            </mat-autocomplete>
+        </div>
 
         <div class="icon d-flex flex-row justify-content-end align-content-center align-items-center">
             <button mat-icon-button>

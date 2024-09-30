@@ -1,89 +1,114 @@
 <section class="main">
-    <div class="main-header d-flex flex-row justify-content-between">
-      <div class="main-section">
-        <h6>Projects</h6>
-        <span>Number of projects: {{ total_project }}</span>
+  <div class="main-header d-flex flex-row justify-content-between">
+    <div class="main-section">
+      <h6>Projects</h6>
+      <span>Number of projects: {{ totalProjects }}</span>
+    </div>
+    <div class="filters-section">
+      <label>
+        Geolocation:
+        <input type="text" [(ngModel)]="geolocation" placeholder="Enter geolocation" (change)="applyFilters()">
+      </label>
+    
+      <label>
+        Status:
+        <input type="text" [(ngModel)]="status" placeholder="Enter status" (change)="applyFilters()">
+      </label>
+    
+      <label>
+        Min Budget:
+        <input type="number" [(ngModel)]="minBudget" placeholder="Min Budget" (change)="applyFilters()">
+      </label>
+    
+      <label>
+        Max Budget:
+        <input type="number" [(ngModel)]="maxBudget" placeholder="Max Budget" (change)="applyFilters()">
+      </label>
+    
+      <label>
+        Date Start:
+        <input type="date" [(ngModel)]="dateStart" (change)="applyFilters()">
+      </label>
+    
+      <label>
+        Date End:
+        <input type="date" [(ngModel)]="dateEnd" (change)="applyFilters()">
+      </label>
+    
+      <label>
+        Sort by:
+        <select [(ngModel)]="sortField" (change)="onSortChange(sortField, sortDirection)">
+          <option value="name">Name</option>
+          <option value="description">Description</option>
+          <option value="budget">Budget</option>
+        </select>
+    
+        <select [(ngModel)]="sortDirection" (change)="onSortChange(sortField, sortDirection)">
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+      </label>
+
+      <button (click)="applyFilters()">Apply Filters</button>
+      <button (click)="resetFilters()">Reset Filters</button>
+    </div>
+  </div>
+
+  <div class="main-scroll d-flex flex-row flex-wrap">
+    <div *ngFor="let project of projects" class="project-card card justify-content-between d-flex flex-column">
+
+      <div class="dropdown">
+        <button class="btn dropdown-toggle-split" type="button" mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>View Detail</button>
+          <button mat-menu-item>Update</button>
+          <button mat-menu-item>Delete</button>
+        </mat-menu>
       </div>
-      <div class="main-actions d-flex flex-row justify-content-around">
-        <div class="filter">
-          <mat-icon>filter_list</mat-icon>
-          <span>Filter</span>
+
+      <img [src]="project.picture" class="card-img-top project-img" alt="Room Image">
+
+      <div class="project-head d-flex flex-row justify-content-between align-items-center">
+        <h6>{{ project.name }}</h6>
+        <span>Budget: {{ project.budget }} $</span>
+      </div>
+
+      <div class="d-flex flex-row progresss justify-content-between align-items-center">
+        <span>Progress</span>
+        <div class="progress-project">
+          <mat-progress-bar 
+            [value]="project.progress" >
+          </mat-progress-bar>
         </div>
-        <div class="featured">
-          <span>Featured</span>
-          <mat-icon>expand_more</mat-icon>
+      </div>
+
+      <div class="project-details d-flex flex-row justify-content-between mt-2">
+        <div class="size d-flex flex-column">
+          <mat-icon>square_foot</mat-icon>
+          <span>{{ project.areaSize }} m²</span>
         </div>
-        <div class="sort">
-          <mat-icon>apps</mat-icon>
-          <mat-icon>view_list</mat-icon>
+        <div class="geolocation d-flex flex-column">
+          <mat-icon>location_on</mat-icon>
+          <span>{{ project.geolocation }}</span>
         </div>
+        <div class="room d-flex flex-column">
+          <mat-icon>door_front</mat-icon>
+          <span>{{ project.room }} rooms</span>
+        </div>
+      </div>
+
+      <div class="project-action">
+        <a [href]="'/tasks?id=' + project.id + '&name=' + project.name">Show Tasks</a>
       </div>
     </div>
-  
-    <div class="main-scroll d-flex flex-row flex-wrap">
-      <div *ngFor="let project of projects" class="project-card card justify-content-between d-flex flex-column">
-        
-        <!-- Dropdown Menu -->
-        <div class="dropdown">
-          <button class="btn dropdown-toggle-split" type="button" mat-icon-button [matMenuTriggerFor]="menu">
-            <mat-icon>more_vert</mat-icon>
-          </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>View Detail</button>
-            <button mat-menu-item>Update</button>
-            <button mat-menu-item>Delete</button>
-          </mat-menu>
-        </div>
-  
-        <!-- Image -->
-        <img [src]="project.picture" class="card-img-top project-img" alt="Room Image">
-  
-        <!-- Project Head -->
-        <div class="project-head d-flex flex-row justify-content-between align-items-center">
-          <h6>{{ project.name }}</h6>
-          <span>Budget: {{ project.budget }} $</span>
-        </div>
-  
-        <!-- Progress Bar -->
-        <div class="d-flex flex-row progresss justify-content-between align-items-center">
-          <span>Progress</span>
-          <div class="progress-project">
-            <mat-progress-bar 
-              [value]="project.progress" 
-              [color]="getProgressColor(project.status)">
-            </mat-progress-bar>
-          </div>
-        </div>
-  
-        <!-- Project Details -->
-        <div class="project-details d-flex flex-row justify-content-between mt-2">
-          <div class="size d-flex flex-column">
-            <mat-icon>square_foot</mat-icon>
-            <span>{{ project.areaSize }} m²</span>
-          </div>
-          <div class="geolocation d-flex flex-column">
-            <mat-icon>location_on</mat-icon>
-            <span>{{ project.geolocation }}</span>
-          </div>
-          <div class="room d-flex flex-column">
-            <mat-icon>door_front</mat-icon>
-            <span>{{ project.room }} rooms</span>
-          </div>
-        </div>
-  
-        <!-- Action -->
-        <div class="project-action">
-          <a [href]="'/tasks?id=' + project.id + '&name=' + project.name">Show Tasks</a>
-        </div>
-      </div>
-  
-      <!-- Add Project -->
-      <div class="add">
-        <a href="/add-project">
-          <mat-icon>add_circle_outline</mat-icon>
-          <h6>Add Project</h6>
-        </a>
-      </div>
-    </div>
-  </section>
-  
+  </div>
+
+  <mat-paginator 
+    [length]="totalProjects"
+    [pageSize]="size"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    (page)="onPageChange($event)">
+  </mat-paginator>
+</section>

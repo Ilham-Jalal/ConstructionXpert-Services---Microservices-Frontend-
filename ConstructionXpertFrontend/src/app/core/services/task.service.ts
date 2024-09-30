@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TaskDto } from '../dtos/TaskDto';
 import { environment } from '../../../environments/environment';
@@ -11,6 +11,16 @@ export class TaskService {
   private apiUrl = `${environment.apiTask}api/tasks`;
 
   constructor(private http: HttpClient) {}
+
+  getAllTasks(page: number, size: number, sortField: string, sortDirection: string): Observable<any> {
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('size', size.toString())
+      .set('sortField', sortField)
+      .set('sortDirection', sortDirection);
+
+    return this.http.get(`${this.apiUrl}/get-all-tasks`, { params });
+  }
 
   createTask(taskDto: TaskDto): Observable<TaskDto> {
     return this.http.post<TaskDto>(`${this.apiUrl}/create-task`, taskDto);

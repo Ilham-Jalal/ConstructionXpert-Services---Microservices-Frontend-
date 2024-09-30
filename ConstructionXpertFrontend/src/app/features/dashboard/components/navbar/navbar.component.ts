@@ -5,8 +5,9 @@ import { FormControl } from '@angular/forms';
 import { User } from '../../../../core/models/User';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../../core/ngrx/app.state';
-import { selectUser } from '../../../../core/ngrx/auth.selectors';
+import { selectUser } from '../../../../core/ngrx/auth/auth.selectors';
 import { ProjectService } from '../../../../core/services/project.service';  // Replace with your actual service
+import { updateSearchTerm } from '../../../../core/ngrx/search/search.actions';
 
 @Component({
   selector: 'app-navbar',
@@ -17,6 +18,7 @@ export class NavbarComponent {
   user$: Observable<User | null>;
   searchControl = new FormControl();
   filteredOptions: Observable<string[]>;
+  selectedSearchTerm: string = '';
 
   constructor(private store: Store<AppState>, private projectService: ProjectService) {
     this.user$ = this.store.select(selectUser);
@@ -31,5 +33,15 @@ export class NavbarComponent {
       debounceTime(300),
       switchMap(value => this.projectService.autocompleteSearch(value || ''))
     );
+  }
+
+  onOptionSelected(option: string): void {
+    this.selectedSearchTerm = option; 
+  }
+
+  onSearchSubmit(): void {
+    if (this.selectedSearchTerm) {
+      this.store.dispatch(updateSearchTerm({ searchTerm: this.selectedSearchTerm }));
+    }
   }
 }

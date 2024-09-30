@@ -1,58 +1,99 @@
 <section class="main">
-  <div class="main-header d-flex flex-row justify-content-between">
-    <div class="main-section">
-      <h6>Projects</h6>
-      <span>Number of projects: {{ totalProjects }}</span>
-    </div>
-    <div class="filters-section">
-      <label>
-        Geolocation:
-        <input type="text" [(ngModel)]="geolocation" placeholder="Enter geolocation" (change)="applyFilters()">
-      </label>
-    
-      <label>
-        Status:
-        <input type="text" [(ngModel)]="status" placeholder="Enter status" (change)="applyFilters()">
-      </label>
-    
-      <label>
-        Min Budget:
-        <input type="number" [(ngModel)]="minBudget" placeholder="Min Budget" (change)="applyFilters()">
-      </label>
-    
-      <label>
-        Max Budget:
-        <input type="number" [(ngModel)]="maxBudget" placeholder="Max Budget" (change)="applyFilters()">
-      </label>
-    
-      <label>
-        Date Start:
-        <input type="date" [(ngModel)]="dateStart" (change)="applyFilters()">
-      </label>
-    
-      <label>
-        Date End:
-        <input type="date" [(ngModel)]="dateEnd" (change)="applyFilters()">
-      </label>
-    
-      <label>
-        Sort by:
-        <select [(ngModel)]="sortField" (change)="onSortChange(sortField, sortDirection)">
+  <div class="main-header d-flex flex-row justify-content-between align-items-center p-3 bg-light border-bottom">
+  
+    <!-- Filters Section -->
+    <div class="filters-section d-flex flex-wrap gap-3 align-items-center">
+      <div class="form-group mb-0">
+        <label for="geolocation" class="small">Geolocation:</label>
+        <input 
+          id="geolocation" 
+          type="text" 
+          class="form-control form-control-sm" 
+          [(ngModel)]="geolocation" 
+          placeholder="Enter geolocation" 
+          (change)="applyFilters()">
+      </div>
+  
+      <div class="form-group mb-0">
+        <label for="status" class="small">Status:</label>
+        <input 
+          id="status" 
+          type="text" 
+          class="form-control form-control-sm" 
+          [(ngModel)]="status" 
+          placeholder="Enter status" 
+          (change)="applyFilters()">
+      </div>
+  
+      <div class="form-group mb-0">
+        <label for="minBudget" class="small">Min Budget:</label>
+        <input 
+          id="minBudget" 
+          type="number" 
+          class="form-control form-control-sm" 
+          [(ngModel)]="minBudget" 
+          placeholder="Min Budget" 
+          (change)="applyFilters()">
+      </div>
+  
+      <div class="form-group mb-0">
+        <label for="maxBudget" class="small">Max Budget:</label>
+        <input 
+          id="maxBudget" 
+          type="number" 
+          class="form-control form-control-sm" 
+          [(ngModel)]="maxBudget" 
+          placeholder="Max Budget" 
+          (change)="applyFilters()">
+      </div>
+  
+      <div class="form-group mb-0">
+        <label for="dateStart" class="small">Date Start:</label>
+        <input 
+          id="dateStart" 
+          type="date" 
+          class="form-control form-control-sm" 
+          [(ngModel)]="dateStart" 
+          (change)="applyFilters()">
+      </div>
+  
+      <div class="form-group mb-0">
+        <label for="dateEnd" class="small">Date End:</label>
+        <input 
+          id="dateEnd" 
+          type="date" 
+          class="form-control form-control-sm" 
+          [(ngModel)]="dateEnd" 
+          (change)="applyFilters()">
+      </div>
+  
+      <div class="form-group mb-0 d-flex align-items-start d-flex flex-column w-25">
+        <label for="sortField" class="small mr-3">Sort by:</label>
+        <div class="d-flex flex-row justify-content-between">
+          <select 
+          id="sortField" 
+          class="form-control form-control-sm mr-2 mx-2" 
+          [(ngModel)]="sortField" 
+          (change)="onSortChange(sortField, sortDirection)">
           <option value="name">Name</option>
           <option value="description">Description</option>
           <option value="budget">Budget</option>
         </select>
-    
-        <select [(ngModel)]="sortDirection" (change)="onSortChange(sortField, sortDirection)">
+  
+        <select 
+          class="form-control form-control-sm mx-2" 
+          [(ngModel)]="sortDirection" 
+          (change)="onSortChange(sortField, sortDirection)">
           <option value="asc">Ascending</option>
           <option value="desc">Descending</option>
         </select>
-      </label>
-
-      <button (click)="applyFilters()">Apply Filters</button>
-      <button (click)="resetFilters()">Reset Filters</button>
+        </div>
+      </div>
+  
+      <button class="btn btn-secondary btn-sm" (click)="resetFilters()">Reset Filters</button>
     </div>
   </div>
+  
 
   <div class="main-scroll d-flex flex-row flex-wrap">
     <div *ngFor="let project of projects" class="project-card card justify-content-between d-flex flex-column">
@@ -108,7 +149,7 @@
   <mat-paginator 
     [length]="totalProjects"
     [pageSize]="size"
-    [pageSizeOptions]="[5, 10, 25, 100]"
+    [pageSizeOptions]="[6, 9, 12, 18, 24]"
     (page)="onPageChange($event)">
   </mat-paginator>
 </section>

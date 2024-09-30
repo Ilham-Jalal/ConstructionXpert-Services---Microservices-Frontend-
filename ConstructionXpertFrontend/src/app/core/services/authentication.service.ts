@@ -9,7 +9,7 @@ import { SupervisorDto } from '../dtos/SupervisorDto';
 import { Role } from '../enums/Role';
 import { User } from '../models/User';
 import { AppState } from '../ngrx/app.state';
-import { logout, setRole, setUser } from '../ngrx/auth.actions';
+import { logout, setRole, setUser } from '../ngrx/auth/auth.actions';
 import { JwtService } from './jwt.service';
 import { Store } from '@ngrx/store';
 import { LoginException } from '../exceptions/login.exception';

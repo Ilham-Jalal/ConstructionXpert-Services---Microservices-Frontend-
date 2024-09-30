@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import { logout, setRole, setUser } from './auth.actions';
-import { Role } from '../enums/Role';
-import { User } from '../models/User';
+import { Role } from '../../enums/Role';
+import { User } from '../../models/User';
 
 export interface AuthState {
   role: Role | null;

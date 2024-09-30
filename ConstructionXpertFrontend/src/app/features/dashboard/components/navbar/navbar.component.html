@@ -1,36 +1,43 @@
 <mat-toolbar class="header d-flex flex-row justify-content-between align-content-center align-items-center">
     <mat-toolbar-row class="topbar d-flex flex-row justify-content-between align-content-center align-items-center">
-        <div class="menu d-flex justify-content-center align-content-center align-items-center">
-            <mat-icon class="mat-icon">menu_alt_right</mat-icon>
-        </div>
-
-        <div class="search">
-            <label>
-                <input type="text" [formControl]="searchControl" placeholder="Search here" matInput [matAutocomplete]="auto">
-                <mat-icon>search</mat-icon>
-            </label>
-            <mat-autocomplete #auto="matAutocomplete">
-                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                    {{ option }}
-                </mat-option>
-            </mat-autocomplete>
-        </div>
-
-        <div class="icon d-flex flex-row justify-content-end align-content-center align-items-center">
-            <button mat-icon-button>
-                <mat-icon>notifications</mat-icon>
-            </button>
-            <button mat-icon-button>
-                <mat-icon>chat</mat-icon>
-            </button>
-        </div>
-
-        <div class="info-user d-flex flex-column align-content-end align-items-end" *ngIf="user$ | async as user">
-            <span>{{ user.username }}</span>
-            <span>{{ user.email }}</span>
-        </div>
-        <div class="user d-flex align-content-start align-items-center justify-content-start" *ngIf="user$ | async as user">
-            <img [src]="user.profilePicture" class="user-avatar">
-        </div>
+      <div class="menu d-flex justify-content-center align-content-center align-items-center">
+        <mat-icon class="mat-icon">menu_alt_right</mat-icon>
+      </div>
+  
+      <div class="search">
+        <label>
+          <input 
+            type="text" 
+            [formControl]="searchControl" 
+            placeholder="Search here" 
+            matInput 
+            [matAutocomplete]="auto" 
+            (keyup.enter)="onSearchSubmit()">
+          <mat-icon>search</mat-icon>
+        </label>
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option" (click)="onOptionSelected(option)">
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+      </div>
+  
+      <div class="icon d-flex flex-row justify-content-end align-content-center align-items-center">
+        <button mat-icon-button>
+          <mat-icon>notifications</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>chat</mat-icon>
+        </button>
+      </div>
+  
+      <div class="info-user d-flex flex-column align-content-end align-items-end" *ngIf="user$ | async as user">
+        <span>{{ user.username }}</span>
+        <span>{{ user.email }}</span>
+      </div>
+      <div class="user d-flex align-content-start align-items-center justify-content-start" *ngIf="user$ | async as user">
+        <img [src]="user.profilePicture" class="user-avatar">
+      </div>
     </mat-toolbar-row>
-</mat-toolbar>
+  </mat-toolbar>
+  

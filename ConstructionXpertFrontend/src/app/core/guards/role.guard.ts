@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { AppState } from '../ngrx/app.state';
-import { selectRole } from '../ngrx/auth.selectors';
+import { selectRole } from '../ngrx/auth/auth.selectors';
 import { AuthenticationService } from '../services/authentication.service';
 import { Role } from '../enums/Role';
 

@@ -49,6 +49,17 @@ export class ProjectService {
     return this.http.get(`${this.apiUrl}/dynamic-filter`, { params });
   }
 
+  dynamicSearchProjects(input: string, page: number, size: number, sortField: string, sortDirection: string): Observable<any> {
+    const params = new HttpParams()
+      .set('input', input)
+      .set('page', page.toString())
+      .set('size', size.toString())
+      .set('sortField', sortField)
+      .set('sortDirection', sortDirection);
+    
+    return this.http.get(`${this.apiUrl}/dynamic-search`, { params });
+  }
+
   autocompleteSearch(input: string): Observable<string[]> {
     return this.http.get<string[]>(`${this.apiUrl}/autocomplete-search?input=${input}`);
   }
